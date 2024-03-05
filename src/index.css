@@ -16,7 +16,6 @@
 body {
     font-family: "Montserrat", sans-serif;
 }
-
 input[type="text"] {
     padding-left: 0.5rem;
 }
@@ -26,6 +25,18 @@ section {
 }
 input[type="checkbox"] {
     transform: scale(1.5);
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.star-poll-img-container {
+    width: 40px;
+}
+.star-poll-img-container img {
+    width: 100%;
+    height: 100%;
 }
 .container {
     margin: 0 auto;
@@ -43,17 +54,19 @@ input[type="checkbox"] {
         width: 80%;
     }
 }
+
 .title {
     text-align: center;
     font-weight: 400;
     font-size: 1.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.75rem;
 }
 
 .main-title {
-    font-size: 2rem;
+    font-size: 1.95rem;
     text-transform: capitalize;
     font-weight: bold;
+    margin-left: 1rem;
 }
 .reaction-icons {
     margin-top: 3rem;
@@ -69,6 +82,7 @@ input[type="checkbox"] {
     }
 }
 .content {
+    margin-top: 1rem;
     border-radius: 5px;
     width: 650px;
     min-height: 350px;
@@ -185,7 +199,7 @@ input[type="checkbox"] {
 }
 
 .download {
-    background-color: var(--color-salmon);
+    background-color: var(--color-grass);
     border-radius: 18px;
     color: #fff;
 }
