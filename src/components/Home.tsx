@@ -7,6 +7,7 @@ import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
 import { ChangeEvent, useState } from "react";
 import Arrow from "./Arrow";
 import { icon } from "../utils/types";
+import pollIcon from "/imgs/poll.png";
 
 const Home = () => {
     const [pollTitle, setPollTitle] = useState<string>("Poll title ...");
@@ -20,13 +21,13 @@ const Home = () => {
         insightState: "",
     });
 
-    type iconStates = {
-        likeState: string;
-        loveState: string;
-        supportState: string;
-        curiousState: string;
-        insightState: string;
-    };
+    // type iconStates = {
+    //     likeState: string;
+    //     loveState: string;
+    //     supportState: string;
+    //     curiousState: string;
+    //     insightState: string;
+    // };
 
     // Function to update specific icon state
     const handleIconChange = (propertyName: string, newValue: string): void => {
@@ -127,10 +128,30 @@ const Home = () => {
         }
     };
 
+    const handleDownload = (event: ChangeEvent<HTMLButtonElement>) => {
+        console.log("clicked");
+    };
     return (
         <section>
             <div className="intro">
-                <h1 className="main-title"> Reaction poll generator </h1>
+                <div className="header">
+                    <div className="star-poll-img-container">
+                        <img src={pollIcon} alt="Give repo star!" />
+                    </div>
+                    <div className="main-title"> Reaction poll generator </div>
+                </div>
+
+                {/* <div className="header">
+                    <a
+                        href="https://github.com/Ramzi-Abidi/Pong"
+                        target="__blank"
+                    >
+                        <div className="star-github-img-container">
+                            <img src={pollIcon} alt="Give repo star!" />
+                        </div>
+                    </a>
+                    <div className="main-title"> Reaction poll generator </div>
+                </div> */}
 
                 <div className="content">
                     <div className="container">
@@ -308,7 +329,12 @@ const Home = () => {
                 </div>
                 <div>
                     <h2>When complete</h2>
-                    <button className="btn download">Download</button>
+                    <button
+                        className="btn download"
+                        onClick={() => handleDownload}
+                    >
+                        Download
+                    </button>
                 </div>
             </div>
         </section>
