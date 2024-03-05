@@ -141,7 +141,7 @@ const Home = () => {
                     <div className="main-title"> Reaction poll generator </div>
                 </div>
 
-                {/* <div className="header">
+                {/* <div className="github-link">
                     <a
                         href="https://github.com/Ramzi-Abidi/Pong"
                         target="__blank"
@@ -150,7 +150,6 @@ const Home = () => {
                             <img src={pollIcon} alt="Give repo star!" />
                         </div>
                     </a>
-                    <div className="main-title"> Reaction poll generator </div>
                 </div> */}
 
                 <div className="content">
