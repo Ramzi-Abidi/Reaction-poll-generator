@@ -5,6 +5,7 @@
     --color-dark: #161616;
     --color-ocean: #416dea;
     --color-grass: #3dd28d;
+    --hover-color-grass: #1e9b61;
     --color-snow: #ffffff;
     --color-salmon: #f32c52;
     --color-sun: #feee7d;
@@ -24,7 +25,9 @@ section {
     flex-direction: column;
 }
 input[type="checkbox"] {
-    transform: scale(1.5);
+    transform: scale(1.2);
+    margin-right: 0.5rem;
+    cursor: pointer;
 }
 .header {
     display: flex;
@@ -54,24 +57,31 @@ input[type="checkbox"] {
         width: 80%;
     }
 }
-
 .title {
     text-align: center;
-    font-weight: 400;
+    font-weight: bold;
     font-size: 1.75rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 2.75rem;
 }
-
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.25rem;
+    }
+}
 .main-title {
     font-size: 1.95rem;
     text-transform: capitalize;
     font-weight: bold;
     margin-left: 1rem;
 }
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+}
 .reaction-icons {
     margin-top: 3rem;
 }
-
 .reaction-icons .container {
     display: flex;
     justify-content: space-around;
@@ -79,6 +89,7 @@ input[type="checkbox"] {
 @media (max-width: 992px) {
     .reaction-icons .container {
         flex-wrap: wrap-reverse;
+        gap: 30px;
     }
 }
 .content {
@@ -110,8 +121,9 @@ input[type="checkbox"] {
     width: 170px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    height: 105px;
 }
 
 .icons img {
@@ -144,6 +156,9 @@ input[type="checkbox"] {
 
 .icon-holder img {
     width: 45px;
+}
+.icon-holder img.insight-img {
+    width: 30px;
 }
 
 /* Arrow displayed in poll content */
@@ -202,4 +217,9 @@ input[type="checkbox"] {
     background-color: var(--color-grass);
     border-radius: 18px;
     color: #fff;
+    transition: 0.5s;
+}
+
+.download:hover {
+    background-color: var(--hover-color-grass);
 }

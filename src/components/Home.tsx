@@ -4,10 +4,11 @@ import insight from "/imgs/Linkedin-Insightful-Icon.png";
 import support from "/imgs/Linkedin-Support-Icon.png";
 import curious from "/imgs/Linkedin-Curious-Icon.png";
 import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import Arrow from "./Arrow";
 import { icon } from "../utils/types";
 import pollIcon from "/imgs/poll.png";
+import html2canvas from "html2canvas";
 
 const Home = () => {
     const [pollTitle, setPollTitle] = useState<string>("Poll title ...");
@@ -20,6 +21,7 @@ const Home = () => {
         curiousState: "",
         insightState: "",
     });
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     // type iconStates = {
     //     likeState: string;
@@ -128,9 +130,36 @@ const Home = () => {
         }
     };
 
-    const handleDownload = (event: ChangeEvent<HTMLButtonElement>) => {
-        console.log("clicked");
+    const handleDownload = (event: MouseEvent) => {
+        event.preventDefault();
+
+        setIsLoading(() => true);
+
+        const element: HTMLElement | null = document.querySelector(".content");
+
+        if (element === null) {
+            return;
+        }
+
+        try {
+            html2canvas(element).then((canvas) => {
+                const img = canvas.toDataURL("image/png");
+
+                const a = document.createElement("a");
+
+                a.href = img;
+
+                a.download = "Reaction-poll.PNG";
+
+                a.click();
+                setIsLoading(() => false);
+            });
+        } catch (err) {
+            setIsLoading(() => false);
+            console.log(err);
+        }
     };
+
     return (
         <section>
             <div className="intro">
@@ -141,7 +170,7 @@ const Home = () => {
                     <div className="main-title"> Reaction poll generator </div>
                 </div>
 
-                {/* <div className="header">
+                {/* <div className="github-link">
                     <a
                         href="https://github.com/Ramzi-Abidi/Pong"
                         target="__blank"
@@ -150,10 +179,9 @@ const Home = () => {
                             <img src={pollIcon} alt="Give repo star!" />
                         </div>
                     </a>
-                    <div className="main-title"> Reaction poll generator </div>
                 </div> */}
 
-                <div className="content">
+                <div className="content" id="content">
                     <div className="container">
                         <div className="title"> {pollTitle} </div>
                         <div className="poll-content">
@@ -246,7 +274,7 @@ const Home = () => {
                                 id="insight"
                                 onChange={handleCheckBoxChange}
                             />
-                            <img src={insight} alt="insight icon" />
+                            <img className="insight-img" src={insight} alt="insight icon" />
                         </div>
                         <div>
                             <input
@@ -329,12 +357,19 @@ const Home = () => {
                 </div>
                 <div>
                     <h2>When complete</h2>
-                    <button
-                        className="btn download"
-                        onClick={() => handleDownload}
-                    >
-                        Download
-                    </button>
+                    {isLoading && (
+                        <span className="btn download">Loading...</span>
+                    )}
+                    {!isLoading && (
+                        <button
+                            className="btn download"
+                            onClick={(event: MouseEvent<HTMLButtonElement>) =>
+                                handleDownload(event)
+                            }
+                        >
+                            Download
+                        </button>
+                    )}
                 </div>
             </div>
         </section>
