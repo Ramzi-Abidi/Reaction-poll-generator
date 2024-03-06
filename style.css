@@ -1,0 +1,20 @@
+/* Github button */
+
+.star-github-img-container{
+    position: fixed;
+    right:5%; 
+    top:5%; 
+    width:65px;
+    border: 2px solid rgb(166, 90, 90);
+    border-radius: 5px;
+    transition: ease-in-out 1s;
+    padding: 5px;
+}
+
+.star-github-img-container img{
+    width:100%;
+}
+
+.star-github-img-container:hover{
+    background-color:rgb(224, 207, 183);
+}
