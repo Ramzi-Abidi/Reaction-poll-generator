@@ -10,10 +10,19 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
             rel="stylesheet"
         />
+        <script src="https://cdn.tailwindcss.com"></script>
         <title>Vite + React + TS</title>
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">
+            <div class="Github-link">
+                <a href="https://github.com/Ramzi-Abidi/reaction-poll-generator" target="_blank">
+                    <div class="star-github-img-container w-12 mr-10 mt-5 fixed top-0.5 right-0.5 ease-in-out duration-500 hover:bg-slate-300">
+                        <img src="public/logo.svg" alt="Give repo star!">
+                    </div>
+                </a>
+            </div>
+        </div>
         <script type="module" src="/src/main.tsx"></script>
     </body>
 </html>
