@@ -32,7 +32,8 @@ input[type="checkbox"] {
 .header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 650px;
 }
 .star-poll-img-container {
     width: 40px;
@@ -140,7 +141,7 @@ input[type="checkbox"] {
     justify-content: space-evenly;
     align-items: center;
 }
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .bottom-section {
         flex-direction: column;
         gap: 1.25rem;
@@ -151,7 +152,7 @@ input[type="checkbox"] {
     height: 30px;
 }
 
-.light-text{
+.light-text {
     font-weight: 500;
 }
 
@@ -236,22 +237,17 @@ input[type="checkbox"] {
 
 /* Github button */
 
-
-.star-github-img-container{
-    position: fixed;
-    right:2%; 
-    top:2%; 
-    width:65px;
-    border-radius: 8px;
-    transition: ease-in-out 1s;
-    padding: 5px;
+.star-github-img-container {
+    width: 40px;
+    transition: ease-in-out .25s;
+    border-radius: 4px;
+    padding: .2rem;
 }
 
-.star-github-img-container img{
-    width:100%;
+.star-github-img-container img {
+    width: 100%;
 }
 
-.star-github-img-container:hover{
-    background-color:rgb(237, 231, 231);
+.star-github-img-container:hover {
+    background-color: rgb(237, 231, 231);
 }
-

@@ -165,19 +165,22 @@ const Home = () => {
                     <div className="star-poll-img-container">
                         <img src={pollIcon} alt="Give repo star!" />
                     </div>
-                    <div className="main-title"> Reaction poll generator </div>
-                </div>
 
-                {/* <div className="github-link">
-                    <a
-                        href="https://github.com/Ramzi-Abidi/Pong"
-                        target="__blank"
-                    >
-                        <div className="star-github-img-container">
-                            <img src={pollIcon} alt="Give repo star!" />
-                        </div>
-                    </a>
-                </div> */}
+                    <div className="main-title"> Reaction poll generator </div>
+                    <div className="github-link">
+                        <a
+                            href="https://github.com/Ramzi-Abidi/reaction-poll-generator"
+                            target="_blank"
+                        >
+                            <div className="star-github-img-container">
+                                <img
+                                    src="imgs/github.png"
+                                    alt="Give repo star!"
+                                />
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
                 <div className="content" id="content">
                     <div className="container">
