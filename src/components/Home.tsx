@@ -4,14 +4,14 @@ import insight from "/imgs/Linkedin-Insightful-Icon.png";
 import support from "/imgs/Linkedin-Support-Icon.png";
 import curious from "/imgs/Linkedin-Curious-Icon.png";
 import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Arrow from "./Arrow";
 import { icon } from "../utils/types";
 import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
 
 const Home = () => {
-    const [pollTitle, setPollTitle] = useState<string>("Poll title ...");
+    const [pollTitle, setPollTitle] = useState<string>("");
     const [icons, setIcons] = useState<icon[]>([]);
 
     const [allIconsStates, setAllIconsStates] = useState({
@@ -22,14 +22,6 @@ const Home = () => {
         insightState: "",
     });
     const [isLoading, setIsLoading] = useState<boolean>(false);
-
-    // type iconStates = {
-    //     likeState: string;
-    //     loveState: string;
-    //     supportState: string;
-    //     curiousState: string;
-    //     insightState: string;
-    // };
 
     // Function to update specific icon state
     const handleIconChange = (propertyName: string, newValue: string): void => {
@@ -54,83 +46,89 @@ const Home = () => {
             type: "",
             title: "",
         };
-
-        if (checkboxId === "like") {
-            if (checked === true) {
-                icon.img = like;
-                // icon.title = "Work from home";
-                icon.type = "like";
-                setIcons([...icons, icon]);
-            } else {
-                const filteredIcons = icons.filter((icon) => {
-                    return icon.type !== "like";
-                });
-                setIcons([...filteredIcons]);
-            }
-        } else if (checkboxId === "love") {
-            if (checked) {
-                icon.img = love;
-                icon.title = "Work from office";
-                icon.type = "love";
-                setIcons([...icons, icon]);
-            } else {
-                const filteredIcons: icon[] = icons.filter((icon) => {
-                    return icon.type !== "love";
-                });
-                setIcons([...filteredIcons]);
-            }
-        } else if (checkboxId === "celebrate") {
-            if (checked) {
-                icon.img = celebrate;
-                icon.title = "Work hybrid";
-                icon.type = "celebrate";
-                setIcons([...icons, icon]);
-            } else {
-                const filteredIcons: icon[] = icons.filter((icon) => {
-                    return icon.type !== "celebrate";
-                });
-                setIcons([...filteredIcons]);
-            }
-        } else if (checkboxId === "support") {
-            if (checked) {
-                icon.img = support;
-                icon.title = "Just work";
-                icon.type = "support";
-                setIcons([...icons, icon]);
-            } else {
-                const filteredIcons: icon[] = icons.filter((icon) => {
-                    return icon.type !== "support";
-                });
-                setIcons([...filteredIcons]);
-            }
-        } else if (checkboxId === "insight") {
-            if (checked) {
-                icon.img = insight;
-                icon.title = "No work at all";
-                icon.type = "insight";
-                setIcons([...icons, icon]);
-            } else {
-                const filteredIcons: icon[] = icons.filter((icon) => {
-                    return icon.type !== "insight";
-                });
-                setIcons([...filteredIcons]);
-            }
-        } else {
-            if (checked) {
-                icon.img = curious;
-                icon.title = "Everything";
-                icon.type = "curious";
-                setIcons([...icons, icon]);
-            } else {
-                const filteredIcons: icon[] = icons.filter((icon) => {
-                    return icon.type !== "curious";
-                });
-                setIcons([...filteredIcons]);
-            }
+        switch (checkboxId) {
+            case "like":
+                if (checked) {
+                    icon.img = like;
+                    // icon.title = "Work from home";
+                    icon.type = "like";
+                    setIcons([...icons, icon]);
+                } else {
+                    const filteredIcons = icons.filter((icon) => {
+                        return icon.type !== "like";
+                    });
+                    setIcons([...filteredIcons]);
+                }
+                break;
+            case "love":
+                if (checked) {
+                    icon.img = love;
+                    // icon.title = "Work from office";
+                    icon.type = "love";
+                    setIcons([...icons, icon]);
+                } else {
+                    const filteredIcons: icon[] = icons.filter((icon) => {
+                        return icon.type !== "love";
+                    });
+                    setIcons([...filteredIcons]);
+                }
+                break;
+            case "celebrate":
+                if (checked) {
+                    icon.img = celebrate;
+                    // icon.title = "Work hybrid";
+                    icon.type = "celebrate";
+                    setIcons([...icons, icon]);
+                } else {
+                    const filteredIcons: icon[] = icons.filter((icon) => {
+                        return icon.type !== "celebrate";
+                    });
+                    setIcons([...filteredIcons]);
+                }
+                break;
+            case "support":
+                if (checked) {
+                    icon.img = support;
+                    // icon.title = "Just work";
+                    icon.type = "support";
+                    setIcons([...icons, icon]);
+                } else {
+                    const filteredIcons: icon[] = icons.filter((icon) => {
+                        return icon.type !== "support";
+                    });
+                    setIcons([...filteredIcons]);
+                }
+                break;
+            case "insight":
+                if (checked) {
+                    icon.img = insight;
+                    // icon.title = "No work at all";
+                    icon.type = "insight";
+                    setIcons([...icons, icon]);
+                } else {
+                    const filteredIcons: icon[] = icons.filter((icon) => {
+                        return icon.type !== "insight";
+                    });
+                    setIcons([...filteredIcons]);
+                }
+                break;
+            default:
+                if (checked) {
+                    icon.img = curious;
+                    // icon.title = "Everything";
+                    icon.type = "curious";
+                    setIcons([...icons, icon]);
+                } else {
+                    const filteredIcons: icon[] = icons.filter((icon) => {
+                        return icon.type !== "curious";
+                    });
+                    setIcons([...filteredIcons]);
+                }
+                break;
         }
     };
 
-    const handleDownload = (event: MouseEvent) => {
+    const handleDownload = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         setIsLoading(() => true);
@@ -183,7 +181,16 @@ const Home = () => {
 
                 <div className="content" id="content">
                     <div className="container">
-                        <div className="title"> {pollTitle} </div>
+                        <div className="title">
+                            {" "}
+                            {pollTitle === "" ? (
+                                <span style={{ fontWeight: "500" }}>
+                                    Poll title...
+                                </span>
+                            ) : (
+                                pollTitle
+                            )}{" "}
+                        </div>
                         <div className="poll-content">
                             {icons.map((el: icon, index: number) => {
                                 console.log(el);
@@ -274,7 +281,11 @@ const Home = () => {
                                 id="insight"
                                 onChange={handleCheckBoxChange}
                             />
-                            <img className="insight-img" src={insight} alt="insight icon" />
+                            <img
+                                className="insight-img"
+                                src={insight}
+                                alt="insight icon"
+                            />
                         </div>
                         <div>
                             <input
@@ -344,34 +355,35 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="bottom-section">
+            <form
+                className="bottom-section"
+                onSubmit={(event: FormEvent<HTMLFormElement>) =>
+                    handleDownload(event)
+                }
+            >
                 <div className="poll-title">
-                    <h1> Poll title </h1>
+                    <h1 className="light-text"> Poll title </h1>
                     <input
                         className="poll-title-input"
                         type="text"
                         placeholder="Enter poll title here ..."
+                        required
                         value={pollTitle}
                         onChange={handleChange}
                     />
                 </div>
                 <div>
-                    <h2>When complete</h2>
+                    <h2 className="light-text">When complete</h2>
                     {isLoading && (
                         <span className="btn download">Loading...</span>
                     )}
                     {!isLoading && (
-                        <button
-                            className="btn download"
-                            onClick={(event: MouseEvent<HTMLButtonElement>) =>
-                                handleDownload(event)
-                            }
-                        >
+                        <button type="submit" className="btn download">
                             Download
                         </button>
                     )}
                 </div>
-            </div>
+            </form>
         </section>
     );
 };
