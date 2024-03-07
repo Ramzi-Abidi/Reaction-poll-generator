@@ -239,8 +239,8 @@ input[type="checkbox"] {
 
 .star-github-img-container{
     position: fixed;
-    right:5%; 
-    top:5%; 
+    right:2%; 
+    top:2%; 
     width:65px;
     border-radius: 8px;
     transition: ease-in-out 1s;
