@@ -232,8 +232,7 @@ input[type="checkbox"] {
     right:5%; 
     top:5%; 
     width:65px;
-    border: 2px solid rgb(166, 90, 90);
-    border-radius: 5px;
+    border-radius: 8px;
     transition: ease-in-out 1s;
     padding: 5px;
 }
@@ -243,6 +242,6 @@ input[type="checkbox"] {
 }
 
 .star-github-img-container:hover{
-    background-color:rgb(224, 207, 183);
+    background-color:rgb(237, 231, 231);
 }
 
