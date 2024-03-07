@@ -233,3 +233,25 @@ input[type="checkbox"] {
 .download:hover {
     background-color: var(--hover-color-grass);
 }
+
+/* Github button */
+
+
+.star-github-img-container{
+    position: fixed;
+    right:2%; 
+    top:2%; 
+    width:65px;
+    border-radius: 8px;
+    transition: ease-in-out 1s;
+    padding: 5px;
+}
+
+.star-github-img-container img{
+    width:100%;
+}
+
+.star-github-img-container:hover{
+    background-color:rgb(237, 231, 231);
+}
+
