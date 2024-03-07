@@ -7,3 +7,11 @@ export type icon = {
     title: string;
     type: string;
 };
+
+export type iconStates = {
+    likeState: string;
+    loveState: string;
+    supportState: string;
+    curiousState: string;
+    insightState: string;
+};
