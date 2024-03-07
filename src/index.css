@@ -1,7 +1,7 @@
 :root {
     --primary-color: #007bff;
     --secondary-color: #6c757d;
-    --border-content-color: #dddddd;
+    --border-content-color: #e4e4e4a3;
     --color-dark: #161616;
     --color-ocean: #416dea;
     --color-grass: #3dd28d;
@@ -137,12 +137,22 @@ input[type="checkbox"] {
 
 .bottom-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+}
+@media (max-width:768px) {
+    .bottom-section {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
 }
 
 .poll-title-input {
     height: 30px;
+}
+
+.light-text{
+    font-weight: 500;
 }
 
 .icon-holder {
