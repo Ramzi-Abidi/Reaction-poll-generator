@@ -175,6 +175,11 @@ input[type="checkbox"] {
     flex-direction: column;
 }
 
+.poll-icon div {
+    max-width: 150px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 .icon-holder img {
     width: 45px;
 }
