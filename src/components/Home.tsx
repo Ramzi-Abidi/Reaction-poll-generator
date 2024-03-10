@@ -212,7 +212,15 @@ const Home = () => {
                                         </div>
                                         <Arrow iconType={el.type} />
                                         <div className="icon-holder">
-                                            <img src={el.img} />
+                                            <img
+                                                src={el.img}
+                                                alt="Icon"
+                                                style={
+                                                    el.type === "insight"
+                                                        ? { width: "40px" }
+                                                        : {}
+                                                }
+                                            />
                                         </div>
                                     </div>
                                 );
