@@ -19,6 +19,7 @@ body {
 }
 input[type="text"] {
     padding-left: 0.5rem;
+    outline: 0;
 }
 section {
     display: flex;
@@ -34,6 +35,11 @@ input[type="checkbox"] {
     align-items: center;
     justify-content: space-between;
     width: 650px;
+}
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
 }
 .star-poll-img-container {
     width: 40px;
@@ -60,8 +66,8 @@ input[type="checkbox"] {
 }
 .title {
     text-align: center;
-    font-weight: bold;
-    font-size: 1.75rem;
+    font-weight: 600;
+    font-size: 1.25rem;
     margin-bottom: 2.75rem;
 }
 @media (max-width: 768px) {
@@ -70,7 +76,7 @@ input[type="checkbox"] {
     }
 }
 .main-title {
-    font-size: 1.95rem;
+    font-size: 1.75rem;
     text-transform: capitalize;
     font-weight: bold;
     margin-left: 1rem;
@@ -101,7 +107,11 @@ input[type="checkbox"] {
     padding: 0.5rem;
     border: 2px solid var(--border-content-color);
 }
-
+@media (max-width: 768px) {
+    .content {
+        width: 100%;
+    }
+}
 .intro {
     display: flex;
     align-items: center;
@@ -168,6 +178,11 @@ input[type="checkbox"] {
 .icon-holder img {
     width: 45px;
 }
+@media (max-width: 768px) {
+    .icon-holder img {
+        width: 38px;
+    }
+}
 .icon-holder img.insight-img {
     width: 30px;
 }
@@ -200,28 +215,30 @@ input[type="checkbox"] {
 }
 
 .poll-icon {
-    font-weight: bold;
-    font-size: 1.25rem;
-    width: 120px;
+    height: 100%;
+    font-weight: 500;
+    font-size: 1rem;
+    min-width: 120px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
-
 .poll-content {
+    height: 230px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 15px;
 }
 
 .btn {
+    cursor: pointer;
     padding: 0.5rem 1rem;
     width: 150px;
     outline: 0;
     border: 0;
-
-    cursor: pointer;
 }
 
 .download {
@@ -230,24 +247,19 @@ input[type="checkbox"] {
     color: #fff;
     transition: 0.5s;
 }
-
 .download:hover {
     background-color: var(--hover-color-grass);
 }
-
 /* Github button */
-
 .star-github-img-container {
     width: 40px;
-    transition: ease-in-out .25s;
+    transition: ease-in-out 0.25s;
     border-radius: 4px;
-    padding: .2rem;
+    padding: 0.2rem;
 }
-
 .star-github-img-container img {
     width: 100%;
 }
-
 .star-github-img-container:hover {
     background-color: rgb(237, 231, 231);
 }
