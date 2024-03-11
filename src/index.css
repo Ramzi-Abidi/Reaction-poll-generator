@@ -174,14 +174,13 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
 }
-
 .poll-icon div {
     max-width: 150px;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 .icon-holder img {
-    width: 45px;
+    width: 35px;
 }
 @media (max-width: 768px) {
     .icon-holder img {
@@ -220,7 +219,7 @@ input[type="checkbox"] {
 }
 
 .poll-icon {
-    height: 100%;
+    height: 85%;
     font-weight: 500;
     font-size: 1rem;
     min-width: 120px;
