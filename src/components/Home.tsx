@@ -13,7 +13,6 @@ import html2canvas from "html2canvas";
 const Home = () => {
     const [pollTitle, setPollTitle] = useState<string>("");
     const [icons, setIcons] = useState<icon[]>([]);
-
     const [allIconsStates, setAllIconsStates] = useState({
         likeState: "",
         loveState: "",
@@ -130,15 +129,11 @@ const Home = () => {
 
     const handleDownload = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         setIsLoading(() => true);
-
         const element: HTMLElement | null = document.querySelector(".content");
-
         if (element === null) {
             return;
         }
-
         try {
             html2canvas(element).then((canvas) => {
                 const img = canvas.toDataURL("image/png");
@@ -196,7 +191,6 @@ const Home = () => {
                         </div>
                         <div className="poll-content">
                             {icons.map((el: icon, index: number) => {
-                                console.log(el);
                                 return (
                                     <div className="poll-icon" key={index}>
                                         <div>
@@ -217,7 +211,7 @@ const Home = () => {
                                                 alt="Icon"
                                                 style={
                                                     el.type === "insight"
-                                                        ? { width: "40px" }
+                                                        ? { width: "25px" }
                                                         : {}
                                                 }
                                             />
