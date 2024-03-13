@@ -4,7 +4,7 @@ import insight from "/imgs/Linkedin-Insightful-Icon.png";
 import support from "/imgs/Linkedin-Support-Icon.png";
 import curious from "/imgs/Linkedin-Curious-Icon.png";
 import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, ReactNode, useState } from "react";
 import Arrow from "./Arrow";
 import { icon } from "../utils/types";
 import pollIcon from "/imgs/poll.png";
@@ -21,6 +21,7 @@ const Home = () => {
         insightState: "",
     });
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [underlinedTitle, setUnderlinedTitle] = useState<boolean>(false);
 
     // Function to update specific icon state
     const handleIconChange = (propertyName: string, newValue: string): void => {
@@ -153,6 +154,32 @@ const Home = () => {
         }
     };
 
+    const handleSetUnderlinedText = (
+        event: ChangeEvent<HTMLInputElement>,
+    ): void => {
+        // const checkboxId: string = event.target.id;
+        const checked: boolean = event.target.checked;
+
+        console.log("162", checked);
+
+        setUnderlinedTitle(() => checked);
+
+        console.log(underlinedTitle);
+    };
+
+    const renderTitle = (): JSX.Element => {
+        if (pollTitle == "") {
+            return <span style={{ fontWeight: "500" }}>Poll title...</span>;
+        }
+
+        if (underlinedTitle === true) {
+            return (
+                <span style={{ textDecoration: "underline" }}>{pollTitle}</span>
+            );
+        }
+
+        return <span>{pollTitle}</span>;
+    };
     return (
         <section>
             <div className="intro">
@@ -179,16 +206,7 @@ const Home = () => {
 
                 <div className="content" id="content">
                     <div className="container">
-                        <div className="title">
-                            {" "}
-                            {pollTitle === "" ? (
-                                <span style={{ fontWeight: "500" }}>
-                                    Poll title...
-                                </span>
-                            ) : (
-                                pollTitle
-                            )}{" "}
-                        </div>
+                        <div className="title">{renderTitle()}</div>
                         <div className="poll-content">
                             {icons.map((el: icon, index: number) => {
                                 return (
@@ -211,7 +229,7 @@ const Home = () => {
                                                 alt="Icon"
                                                 style={
                                                     el.type === "insight"
-                                                        ? { width: "25px" }
+                                                        ? { width: "35px" }
                                                         : {}
                                                 }
                                             />
@@ -375,6 +393,14 @@ const Home = () => {
                         required
                         value={pollTitle}
                         onChange={handleChange}
+                    />
+                </div>
+                <div className="underlined-text-quest">
+                    <p className="light-text" style={{marginRight: "10px"}}>Underlined title?</p>
+                    <input
+                        type="checkbox"
+                        id="like"
+                        onChange={handleSetUnderlinedText}
                     />
                 </div>
                 <div>

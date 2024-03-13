@@ -87,7 +87,7 @@ input[type="checkbox"] {
     }
 }
 .reaction-icons {
-    margin-top: 3rem;
+    margin-top: 1.75rem;
 }
 .reaction-icons .container {
     display: flex;
@@ -95,14 +95,14 @@ input[type="checkbox"] {
 }
 @media (max-width: 992px) {
     .reaction-icons .container {
-        flex-wrap: wrap-reverse;
+        flex-wrap: wrap;
         gap: 30px;
     }
 }
 .content {
     margin-top: 1rem;
     border-radius: 5px;
-    width: 650px;
+    width: 700px;
     min-height: 350px;
     padding: 0.5rem;
     border: 2px solid var(--border-content-color);
@@ -180,7 +180,7 @@ input[type="checkbox"] {
     overflow-wrap: break-word;
 }
 .icon-holder img {
-    width: 35px;
+    width: 50px;
 }
 @media (max-width: 768px) {
     .icon-holder img {
@@ -188,7 +188,7 @@ input[type="checkbox"] {
     }
 }
 .icon-holder img.insight-img {
-    width: 30px;
+    width: 35px;
 }
 
 /* Arrow displayed in poll content */
@@ -236,7 +236,6 @@ input[type="checkbox"] {
     align-items: center;
     gap: 15px;
 }
-
 .btn {
     cursor: pointer;
     padding: 0.5rem 1rem;
@@ -266,4 +265,11 @@ input[type="checkbox"] {
 }
 .star-github-img-container:hover {
     background-color: rgb(237, 231, 231);
+}
+
+.underlined-text-quest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.75rem;
 }
