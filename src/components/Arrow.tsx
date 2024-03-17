@@ -8,7 +8,7 @@ const Arrow: React.FC<ArrowProps> = ({ iconType }) => {
             : iconType === "love"
             ? "red"
             : iconType === "insight"
-            ? "yellow"
+            ? "#edd528"
             : iconType === "celebrate"
             ? "green"
             : "purple";
