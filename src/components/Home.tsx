@@ -243,6 +243,7 @@ const Home = () => {
             </div>
 
             <div className="reaction-icons">
+                    <h3 style={{textAlign:"center", marginBottom:".25rem", marginTop: "0"}}> Choose reactions </h3>
                 <div className="container">
                     <div className="icons like">
                         <div className="icon-holder">
