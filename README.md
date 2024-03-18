@@ -6,7 +6,7 @@
 
 # 📋⭐
 
-![image](https://github.com/Ramzi-Abidi/reaction-poll-generator/assets/69228547/5dfa0da7-2cd0-4acd-a0df-94c9777495ed)
+![image](https://github.com/Ramzi-Abidi/reaction-poll-generator/assets/69228547/42be04a5-32a7-4daa-90d0-77779fcef5bc)
 
 ## 💡 About
 
