@@ -8,6 +8,8 @@
 
 ![image](https://github.com/Ramzi-Abidi/reaction-poll-generator/assets/69228547/42be04a5-32a7-4daa-90d0-77779fcef5bc)
 
+![image](https://github.com/Ramzi-Abidi/reaction-poll-generator/assets/69228547/8c0aac35-010e-4ca4-9d7d-193de844a591)
+
 ## 💡 About
 
 Reaction Poll Generator is a user-friendly web app for crafting customized polls for LinkedIn posts. Effortlessly create engaging polls and boost interaction with your LinkedIn audience.
