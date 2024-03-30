@@ -2,16 +2,16 @@ export interface ArrowProps {
     iconType: string;
 }
 
-export type icon = {
+export interface icon {
     img: string;
     title: string;
     type: string;
-};
+}
 
-export type iconStates = {
+export interface iconStates {
     likeState: string;
     loveState: string;
     supportState: string;
     curiousState: string;
     insightState: string;
-};
+}
