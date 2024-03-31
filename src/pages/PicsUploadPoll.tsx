@@ -4,40 +4,51 @@ import insight from "/imgs/Linkedin-Insightful-Icon.png";
 import support from "/imgs/Linkedin-Support-Icon.png";
 import curious from "/imgs/Linkedin-Curious-Icon.png";
 import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
-import { ChangeEvent, FormEvent, ReactNode, useState } from "react";
-import Arrow from "./Arrow";
+import uploadImg from "/imgs/upload-img.png";
+import { ChangeEvent, FormEvent, useState } from "react";
+import Arrow from "../components/Arrow";
 import { icon } from "../utils/types";
 import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
+import { Link } from "react-router-dom";
 
-const Home = () => {
+const PicsUploadPoll = () => {
     const [pollTitle, setPollTitle] = useState<string>("");
     const [icons, setIcons] = useState<icon[]>([]);
     const [allIconsStates, setAllIconsStates] = useState({
-        likeState: "",
-        loveState: "",
-        supportState: "",
-        curiousState: "",
-        insightState: "",
+        likeState: "/imgs/picture.png",
+        loveState: "/imgs/picture.png",
+        supportState: "/imgs/picture.png",
+        curiousState: "/imgs/picture.png",
+        insightState: "/imgs/picture.png",
     });
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [underlinedTitle, setUnderlinedTitle] = useState<boolean>(false);
 
-    // Function to update specific icon state
-    const handleIconChange = (propertyName: string, newValue: string): void => {
-        setAllIconsStates((prevState) => ({
-            ...prevState,
-            [propertyName]: newValue,
-        }));
+    // Handle image upload
+    const handleImageUploadChange = (e: any, propertyName: string) => {
+        console.log(propertyName);
+        const file = e.target.files[0];
+        if (file) {
+            const reader: FileReader = new FileReader();
+            reader.onload = () => {
+                setAllIconsStates((prevState) => ({
+                    ...prevState,
+                    [propertyName]: reader.result,
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
+        console.log(allIconsStates);
     };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    // Handle poll title
+    const handlePollTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setPollTitle(() => event.target.value);
     };
 
-    const handleCheckBoxChange = (
-        event: ChangeEvent<HTMLInputElement>,
-    ): void => {
+    
+    const handleCheckBoxChange = (event: ChangeEvent<HTMLInputElement>) => {
         const checkboxId: string = event.target.id;
         const checked: boolean = event.target.checked;
 
@@ -46,6 +57,7 @@ const Home = () => {
             type: "",
             title: "",
         };
+
         switch (checkboxId) {
             case "like":
                 if (checked) {
@@ -128,8 +140,10 @@ const Home = () => {
         }
     };
 
-    const handleDownload = (event: FormEvent<HTMLFormElement>) => {
+    // Download final output image
+    const HandleDownloadFinalOutput = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
         setIsLoading(() => true);
         const element: HTMLElement | null = document.querySelector(".content");
         if (element === null) {
@@ -137,14 +151,10 @@ const Home = () => {
         }
         try {
             html2canvas(element).then((canvas) => {
-                const img = canvas.toDataURL("image/png");
-
-                const a = document.createElement("a");
-
+                const img: string = canvas.toDataURL("image/png");
+                const a: HTMLAnchorElement = document.createElement("a");
                 a.href = img;
-
                 a.download = "Reaction-poll.PNG";
-
                 a.click();
                 setIsLoading(() => false);
             });
@@ -154,19 +164,14 @@ const Home = () => {
         }
     };
 
-    const handleSetUnderlinedText = (
-        event: ChangeEvent<HTMLInputElement>,
-    ): void => {
-        // const checkboxId: string = event.target.id;
+    // Set the text underlined
+    const handleSetUnderlinedText = (event: ChangeEvent<HTMLInputElement>) => {
         const checked: boolean = event.target.checked;
 
-        console.log("162", checked);
-
         setUnderlinedTitle(() => checked);
-
-        console.log(underlinedTitle);
     };
 
+    // Returns poll title
     const renderTitle = (): JSX.Element => {
         if (pollTitle == "") {
             return <span style={{ fontWeight: "500" }}>Poll title...</span>;
@@ -180,6 +185,7 @@ const Home = () => {
 
         return <span>{pollTitle}</span>;
     };
+
     return (
         <section>
             <div className="intro">
@@ -204,6 +210,25 @@ const Home = () => {
                     </div>
                 </div>
 
+                <div className="links">
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/" style={{ padding: 5 }}>
+                                    Text poll
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/pics-upload-poll"
+                                    style={{ padding: 5 }}
+                                >
+                                    Pictures poll
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
                 <div className="content" id="content">
                     <div className="container">
                         <div className="title">{renderTitle()}</div>
@@ -212,15 +237,42 @@ const Home = () => {
                                 return (
                                     <div className="poll-icon" key={index}>
                                         <div>
-                                            {el.type === "like"
-                                                ? allIconsStates.likeState
-                                                : el.type === "love"
-                                                ? allIconsStates.loveState
-                                                : el.type === "curious"
-                                                ? allIconsStates.curiousState
-                                                : el.type === "insight"
-                                                ? allIconsStates.insightState
-                                                : allIconsStates.supportState}
+                                            {el.type === "like" ? (
+                                                <img
+                                                    src={
+                                                        allIconsStates.likeState
+                                                    }
+                                                    alt="Love"
+                                                />
+                                            ) : el.type === "love" ? (
+                                                <img
+                                                    src={
+                                                        allIconsStates.loveState
+                                                    }
+                                                    alt="Love"
+                                                />
+                                            ) : el.type === "curious" ? (
+                                                <img
+                                                    src={
+                                                        allIconsStates.curiousState
+                                                    }
+                                                    alt="Curious"
+                                                />
+                                            ) : el.type === "insight" ? (
+                                                <img
+                                                    src={
+                                                        allIconsStates.insightState
+                                                    }
+                                                    alt="Insight"
+                                                />
+                                            ) : (
+                                                <img
+                                                    src={
+                                                        allIconsStates.supportState
+                                                    }
+                                                    alt="Insight"
+                                                />
+                                            )}
                                         </div>
                                         <Arrow iconType={el.type} />
                                         <div className="icon-holder">
@@ -243,7 +295,15 @@ const Home = () => {
             </div>
 
             <div className="reaction-icons">
-                    <h3 style={{textAlign:"center", marginBottom:".25rem", marginTop: "0"}}> Choose reactions </h3>
+                <h3
+                    style={{
+                        textAlign: "center",
+                        marginBottom: ".25rem",
+                        marginTop: "0",
+                    }}
+                >
+                    Choose reactions
+                </h3>
                 <div className="container">
                     <div className="icons like">
                         <div className="icon-holder">
@@ -255,18 +315,17 @@ const Home = () => {
                             />
                             <img src={like} alt="Like icon" />
                         </div>
-                        <div>
+                        <div className="custom-file-upload">
+                            <label htmlFor="file-upload">
+                                <img src={uploadImg} alt="" />
+                            </label>
                             <input
-                                className="icon-input"
-                                type="text"
-                                placeholder="Enter label for like"
-                                onChange={(e) =>
-                                    handleIconChange(
-                                        "likeState",
-                                        e.target.value,
-                                    )
-                                }
-                                value={allIconsStates.likeState}
+                                id="file-upload"
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    handleImageUploadChange(e, "likeState");
+                                }}
                             />
                         </div>
                     </div>
@@ -281,18 +340,17 @@ const Home = () => {
                             />
                             <img src={love} alt="Love icon" />
                         </div>
-                        <div>
+                        <div className="custom-file-upload">
+                            <label htmlFor="file-upload-love">
+                                <img src={uploadImg} alt="" />
+                            </label>
                             <input
-                                className="icon-input"
-                                type="text"
-                                placeholder="Enter label for love"
-                                onChange={(e) =>
-                                    handleIconChange(
-                                        "loveState",
-                                        e.target.value,
-                                    )
-                                }
-                                value={allIconsStates.loveState}
+                                id="file-upload-love"
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    handleImageUploadChange(e, "loveState");
+                                }}
                             />
                         </div>
                     </div>
@@ -311,18 +369,17 @@ const Home = () => {
                                 alt="insight icon"
                             />
                         </div>
-                        <div>
+                        <div className="custom-file-upload">
+                            <label htmlFor="file-upload-insight">
+                                <img src={uploadImg} alt="" />
+                            </label>
                             <input
-                                className="icon-input"
-                                type="text"
-                                placeholder="Enter label for insight"
-                                onChange={(e) =>
-                                    handleIconChange(
-                                        "insightState",
-                                        e.target.value,
-                                    )
-                                }
-                                value={allIconsStates.insightState}
+                                id="file-upload-insight"
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    handleImageUploadChange(e, "insightState");
+                                }}
                             />
                         </div>
                     </div>
@@ -336,18 +393,17 @@ const Home = () => {
                             />
                             <img src={support} alt="support icon" />
                         </div>
-                        <div>
+                        <div className="custom-file-upload">
+                            <label htmlFor="file-upload-support">
+                                <img src={uploadImg} alt="" />
+                            </label>
                             <input
-                                className="icon-input"
-                                type="text"
-                                placeholder="Enter label for support"
-                                onChange={(e) =>
-                                    handleIconChange(
-                                        "supportState",
-                                        e.target.value,
-                                    )
-                                }
-                                value={allIconsStates.supportState}
+                                id="file-upload-support"
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    handleImageUploadChange(e, "supportState");
+                                }}
                             />
                         </div>
                     </div>
@@ -361,18 +417,17 @@ const Home = () => {
                             />
                             <img src={curious} alt="curious icon" />
                         </div>
-                        <div>
+                        <div className="custom-file-upload">
+                            <label htmlFor="file-upload-curious">
+                                <img src={uploadImg} alt="" />
+                            </label>
                             <input
-                                className="icon-input"
-                                type="text"
-                                placeholder="Enter label for curious"
-                                onChange={(e) =>
-                                    handleIconChange(
-                                        "curiousState",
-                                        e.target.value,
-                                    )
-                                }
-                                value={allIconsStates.curiousState}
+                                id="file-upload-curious"
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    handleImageUploadChange(e, "curiousState");
+                                }}
                             />
                         </div>
                     </div>
@@ -382,7 +437,7 @@ const Home = () => {
             <form
                 className="bottom-section"
                 onSubmit={(event: FormEvent<HTMLFormElement>) =>
-                    handleDownload(event)
+                    HandleDownloadFinalOutput(event)
                 }
             >
                 <div className="poll-title">
@@ -393,11 +448,13 @@ const Home = () => {
                         placeholder="Enter poll title here ..."
                         required
                         value={pollTitle}
-                        onChange={handleChange}
+                        onChange={handlePollTitleChange}
                     />
                 </div>
                 <div className="underlined-text-quest">
-                    <p className="light-text" style={{marginRight: "10px"}}>Underlined title?</p>
+                    <p className="light-text" style={{ marginRight: "10px" }}>
+                        Underlined title?
+                    </p>
                     <input
                         type="checkbox"
                         id="like"
@@ -420,4 +477,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default PicsUploadPoll;
