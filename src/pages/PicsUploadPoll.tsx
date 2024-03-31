@@ -5,7 +5,7 @@ import support from "/imgs/Linkedin-Support-Icon.png";
 import curious from "/imgs/Linkedin-Curious-Icon.png";
 import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
 import uploadImg from "/imgs/upload-img.png";
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Arrow from "../components/Arrow";
 import { icon } from "../utils/types";
 import pollIcon from "/imgs/poll.png";
@@ -25,13 +25,13 @@ const PicsUploadPoll = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [underlinedTitle, setUnderlinedTitle] = useState<boolean>(false);
 
-    // Update image
-    const handleImageUpload = (e: any, propertyName: string) => {
+    // Handle image upload
+    const handleImageUploadChange = (e: any, propertyName: string) => {
+        console.log(propertyName);
         const file = e.target.files[0];
         if (file) {
-            const reader = new FileReader();
+            const reader: FileReader = new FileReader();
             reader.onload = () => {
-                // setAllIconsStates({ [propertyName]: reader.result });
                 setAllIconsStates((prevState) => ({
                     ...prevState,
                     [propertyName]: reader.result,
@@ -39,12 +39,15 @@ const PicsUploadPoll = () => {
             };
             reader.readAsDataURL(file);
         }
+        console.log(allIconsStates);
     };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    // Handle poll title
+    const handlePollTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setPollTitle(() => event.target.value);
     };
 
+    
     const handleCheckBoxChange = (event: ChangeEvent<HTMLInputElement>) => {
         const checkboxId: string = event.target.id;
         const checked: boolean = event.target.checked;
@@ -137,8 +140,10 @@ const PicsUploadPoll = () => {
         }
     };
 
-    const handleDownload = (event: FormEvent<HTMLFormElement>) => {
+    // Download final output image
+    const HandleDownloadFinalOutput = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
         setIsLoading(() => true);
         const element: HTMLElement | null = document.querySelector(".content");
         if (element === null) {
@@ -146,14 +151,10 @@ const PicsUploadPoll = () => {
         }
         try {
             html2canvas(element).then((canvas) => {
-                const img = canvas.toDataURL("image/png");
-
-                const a = document.createElement("a");
-
+                const img: string = canvas.toDataURL("image/png");
+                const a: HTMLAnchorElement = document.createElement("a");
                 a.href = img;
-
                 a.download = "Reaction-poll.PNG";
-
                 a.click();
                 setIsLoading(() => false);
             });
@@ -163,12 +164,14 @@ const PicsUploadPoll = () => {
         }
     };
 
+    // Set the text underlined
     const handleSetUnderlinedText = (event: ChangeEvent<HTMLInputElement>) => {
         const checked: boolean = event.target.checked;
 
         setUnderlinedTitle(() => checked);
     };
 
+    // Returns poll title
     const renderTitle = (): JSX.Element => {
         if (pollTitle == "") {
             return <span style={{ fontWeight: "500" }}>Poll title...</span>;
@@ -321,7 +324,7 @@ const PicsUploadPoll = () => {
                                 type="file"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    handleImageUpload(e, "likeState");
+                                    handleImageUploadChange(e, "likeState");
                                 }}
                             />
                         </div>
@@ -338,15 +341,15 @@ const PicsUploadPoll = () => {
                             <img src={love} alt="Love icon" />
                         </div>
                         <div className="custom-file-upload">
-                            <label htmlFor="file-upload">
+                            <label htmlFor="file-upload-love">
                                 <img src={uploadImg} alt="" />
                             </label>
                             <input
-                                id="file-upload"
+                                id="file-upload-love"
                                 type="file"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    handleImageUpload(e, "loveState");
+                                    handleImageUploadChange(e, "loveState");
                                 }}
                             />
                         </div>
@@ -367,15 +370,15 @@ const PicsUploadPoll = () => {
                             />
                         </div>
                         <div className="custom-file-upload">
-                            <label htmlFor="file-upload">
+                            <label htmlFor="file-upload-insight">
                                 <img src={uploadImg} alt="" />
                             </label>
                             <input
-                                id="file-upload"
+                                id="file-upload-insight"
                                 type="file"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    handleImageUpload(e, "insightState");
+                                    handleImageUploadChange(e, "insightState");
                                 }}
                             />
                         </div>
@@ -391,18 +394,17 @@ const PicsUploadPoll = () => {
                             <img src={support} alt="support icon" />
                         </div>
                         <div className="custom-file-upload">
-                            <label htmlFor="file-upload">
+                            <label htmlFor="file-upload-support">
                                 <img src={uploadImg} alt="" />
                             </label>
                             <input
-                                id="file-upload"
+                                id="file-upload-support"
                                 type="file"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    handleImageUpload(e, "supportState");
+                                    handleImageUploadChange(e, "supportState");
                                 }}
                             />
-                            <input id="file-upload" type="file" />
                         </div>
                     </div>
                     <div className="icons curious">
@@ -416,15 +418,15 @@ const PicsUploadPoll = () => {
                             <img src={curious} alt="curious icon" />
                         </div>
                         <div className="custom-file-upload">
-                            <label htmlFor="file-upload">
+                            <label htmlFor="file-upload-curious">
                                 <img src={uploadImg} alt="" />
                             </label>
                             <input
-                                id="file-upload"
+                                id="file-upload-curious"
                                 type="file"
                                 accept="image/*"
                                 onChange={(e) => {
-                                    handleImageUpload(e, "curiousState");
+                                    handleImageUploadChange(e, "curiousState");
                                 }}
                             />
                         </div>
@@ -435,7 +437,7 @@ const PicsUploadPoll = () => {
             <form
                 className="bottom-section"
                 onSubmit={(event: FormEvent<HTMLFormElement>) =>
-                    handleDownload(event)
+                    HandleDownloadFinalOutput(event)
                 }
             >
                 <div className="poll-title">
@@ -446,7 +448,7 @@ const PicsUploadPoll = () => {
                         placeholder="Enter poll title here ..."
                         required
                         value={pollTitle}
-                        onChange={handleChange}
+                        onChange={handlePollTitleChange}
                     />
                 </div>
                 <div className="underlined-text-quest">
