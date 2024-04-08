@@ -15,3 +15,20 @@ export interface iconStates {
     curiousState: string;
     insightState: string;
 }
+
+export interface IAnimable {
+    initial: {
+        opacity: number;
+        x: number;
+    };
+
+    animate: {
+        opacity: number;
+        x: number;
+    };
+
+    exit: {
+        opacity: number;
+        x: number;
+    };
+}
