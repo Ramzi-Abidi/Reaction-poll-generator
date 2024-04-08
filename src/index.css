@@ -20,6 +20,9 @@ li {
     text-decoration: none;
     list-style: none;
 }
+a {
+    text-decoration: none;
+}
 input[type="text"] {
     padding-left: 0.5rem;
     outline: 0;
@@ -69,9 +72,9 @@ input[type="checkbox"] {
 }
 .title {
     text-align: center;
-    font-weight: 600;
-    font-size: 1.25rem;
-    margin-bottom: 2.75rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 2.25rem;
 }
 @media (max-width: 768px) {
     .title {
@@ -103,6 +106,8 @@ input[type="checkbox"] {
     }
 }
 .content {
+    /* background-image: url("/imgs/white-background.jpeg"); */
+    /* background: #333; */
     margin-top: 1rem;
     border-radius: 5px;
     /* width: 700px; */
@@ -176,12 +181,12 @@ input[type="checkbox"] {
     margin: 0 0.75rem;
 }
 .poll-icon div {
-    max-width: 150px;
+    max-width: 350px;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 .poll-icon img {
-    width: 100px;
+    width: 100%;
 }
 .icon-holder img {
     width: 50px;
@@ -252,7 +257,7 @@ input[type="checkbox"] {
     width: 100%;
 }
 .star-github-img-container:hover {
-    background-color: rgb(237, 231, 231);
+    background-color: var(--border-content-color);
 }
 .underlined-text-quest {
     display: flex;
@@ -284,3 +289,12 @@ input[type="file"] {
 .custom-file-upload div img span {
     font-size: 12px;
 }
+
+/* .header .links nav ul li {
+    margin: "0 7px";
+    padding: "5px 20px";
+} */
+
+/* .links nav ul li:hover {
+    background: "#f1f1f1f1";
+} */
