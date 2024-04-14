@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 type headerProp = {
@@ -7,7 +6,6 @@ type headerProp = {
 
 export const Header = (prop: headerProp) => {
     const { pollIcon } = prop;
-    const [textPoll, setTextPoll] = useState(true);
 
     return (
         <>

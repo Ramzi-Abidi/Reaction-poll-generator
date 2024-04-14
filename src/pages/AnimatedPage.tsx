@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { IAnimable } from "../utils/interfaces";
 
 const animations: any = {
     initial: {
@@ -16,9 +15,14 @@ const animations: any = {
     },
 };
 
-const AnimatedPage = ({ children }:any) => {
+const AnimatedPage = ({ children }: any) => {
     return (
-        <motion.div variants={animations} initial="initial" animate="animate" exit="exit">
+        <motion.div
+            variants={animations}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+        >
             {children}
         </motion.div>
     );
