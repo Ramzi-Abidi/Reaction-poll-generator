@@ -6,9 +6,24 @@
 
 # 📋⭐
 
+## Reaction Poll Generator enables users to generate text/image polls for linkedin posts!
+
+### Text poll
+
 ![image](https://github.com/Ramzi-Abidi/reaction-poll-generator/assets/69228547/42be04a5-32a7-4daa-90d0-77779fcef5bc)
 
+### Linkedin post overview
+
 ![image](https://github.com/Ramzi-Abidi/reaction-poll-generator/assets/69228547/8c0aac35-010e-4ca4-9d7d-193de844a591)
+
+### Image poll
+
+![image](https://github.com/Ramzi-Abidi/Reaction-poll-generator/assets/69228547/c1d4b21f-4153-43f3-8d12-815e201e2a81)
+
+### Linkedin post overview
+
+![image](https://github.com/Ramzi-Abidi/Reaction-poll-generator/assets/69228547/36c048d5-16d3-4472-9371-622d08fa8439)
+
 
 ## 💡 About
 
