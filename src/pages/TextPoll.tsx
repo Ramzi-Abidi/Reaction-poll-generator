@@ -13,7 +13,7 @@ import { Header } from "../components/Header";
 import AnimatePage from "./AnimatedPage";
 
 const Home = () => {
-    const [pollTitle, setPollTitle] = useState<string>("");
+    const [pollTitle, setPollTitle] = useState("");
     const [icons, setIcons] = useState<icon[]>([]);
     const [allIconsStates, setAllIconsStates] = useState({
         likeState: "",
@@ -22,11 +22,11 @@ const Home = () => {
         curiousState: "",
         insightState: "",
     });
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [underlinedTitle, setUnderlinedTitle] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [underlinedTitle, setUnderlinedTitle] = useState(false);
 
     // Function to update specific icon state
-    const handleIconChange = (propertyName: string, newValue: string): void => {
+    const handleIconChange = (propertyName: string, newValue: string) => {
         setAllIconsStates((prevState) => ({
             ...prevState,
             [propertyName]: newValue,
@@ -132,9 +132,14 @@ const Home = () => {
     const handleDownload = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsLoading(() => true);
-        const element: HTMLElement | null = document.querySelector(".content");
-        if (element === null) {
-            return;
+        const element: HTMLElement = document.querySelector(
+            ".content",
+        ) as HTMLElement;
+
+        // user did not choose any icon
+        if (icons.length === 0) {
+            setIsLoading(() => false);
+            return alert("Invalid inputs!");
         }
         try {
             html2canvas(element).then((canvas) => {

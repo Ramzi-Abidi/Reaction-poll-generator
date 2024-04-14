@@ -269,6 +269,8 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0;
+    margin: 1.25rem 0 0 0;
 }
 .links nav ul li a {
     color: #007bff;
