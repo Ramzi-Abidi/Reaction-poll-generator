@@ -289,12 +289,13 @@ input[type="file"] {
 .custom-file-upload div img span {
     font-size: 12px;
 }
-
-/* .header .links nav ul li {
-    margin: "0 7px";
-    padding: "5px 20px";
-} */
-
-/* .links nav ul li:hover {
-    background: "#f1f1f1f1";
-} */
+.first-link,
+.second-link {
+    margin: 0 7px;
+    padding: 5px 20px;
+    /* background-color: #f1f1f1f1; */
+}
+.first-link:hover,
+.second-link:hover {
+    text-decoration: underline;
+}
