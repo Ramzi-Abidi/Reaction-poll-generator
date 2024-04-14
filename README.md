@@ -6,7 +6,7 @@
 
 # 📋⭐
 
-## Reaction Poll Generator enables users to generate text/image polls for linkedin posts!
+### Reaction Poll Generator enables users to generate text/image polls for linkedin posts!
 
 ### Text poll
 
