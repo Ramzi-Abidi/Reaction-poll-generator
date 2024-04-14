@@ -1,6 +1,6 @@
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import TextPoll from "./pages/TextPoll";
-import ImageUploadPoll from "./pages/ImageUploadPoll";
+import ImageUploadPoll from "./pages/ImagesPoll";
 import NoMatch from "./pages/NoMatch";
 
 const App = () => {

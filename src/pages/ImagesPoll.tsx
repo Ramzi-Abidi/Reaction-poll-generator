@@ -13,7 +13,7 @@ import html2canvas from "html2canvas";
 import { Header } from "../components/Header";
 import AnimatePage from "./AnimatedPage";
 
-const PicsUploadPoll = () => {
+const ImagesPoll = () => {
     const [pollTitle, setPollTitle] = useState<string>("");
     const [icons, setIcons] = useState<icon[]>([]);
     const [allIconsStates, setAllIconsStates] = useState({
@@ -26,7 +26,6 @@ const PicsUploadPoll = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [underlinedTitle, setUnderlinedTitle] = useState<boolean>(false);
 
-    // Handle image upload
     const handleImageUploadChange = (e: any, propertyName: string) => {
         const file = e.target.files[0];
         if (file) {
@@ -41,7 +40,6 @@ const PicsUploadPoll = () => {
         }
     };
 
-    // Handle poll title
     const handlePollTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setPollTitle(() => event.target.value);
     };
@@ -138,14 +136,17 @@ const PicsUploadPoll = () => {
         }
     };
 
-    // Download final output image
     const HandleDownloadFinalOutput = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         setIsLoading(() => true);
-        const element: HTMLElement | null = document.querySelector(".content");
-        if (element === null) {
-            return;
+        const element: HTMLElement = document.querySelector(
+            ".content",
+        ) as HTMLElement;
+        // user did not choose any icon
+        if (icons.length === 0) {
+            setIsLoading(() => false);
+            return alert("Invalid inputs!");
         }
         try {
             html2canvas(element).then((canvas) => {
@@ -162,14 +163,12 @@ const PicsUploadPoll = () => {
         }
     };
 
-    // Set the text underlined
     const handleSetUnderlinedText = (event: ChangeEvent<HTMLInputElement>) => {
         const checked: boolean = event.target.checked;
 
         setUnderlinedTitle(() => checked);
     };
 
-    // Returns poll title
     const renderTitle = (): JSX.Element => {
         if (pollTitle == "") {
             return <span style={{ fontWeight: "500" }}>Poll title...</span>;
@@ -451,4 +450,4 @@ const PicsUploadPoll = () => {
     );
 };
 
-export default PicsUploadPoll;
+export default ImagesPoll;
