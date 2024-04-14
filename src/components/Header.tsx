@@ -32,12 +32,12 @@ export const Header = (prop: headerProp) => {
             <div className="links">
                 <nav>
                     <ul>
-                        <li>
+                        <li className="first-link">
                             <Link to="/" style={{ padding: 5 }}>
                                 Text poll
                             </Link>
                         </li>
-                        <li>
+                        <li className="second-link">
                             <Link to="/image-poll" style={{ padding: 5 }}>
                                 Images poll
                             </Link>
