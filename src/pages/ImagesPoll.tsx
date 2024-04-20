@@ -195,7 +195,7 @@ const ImagesPoll = () => {
                             <div className="poll-content">
                                 {icons.map((el: icon, index: number) => {
                                     return (
-                                        <div className="poll-icon" key={index}>
+                                        <div className="poll-icon img-poll-icon" key={index}>
                                             <div>
                                                 {el.type === "like" ? (
                                                     <img
