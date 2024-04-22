@@ -195,7 +195,10 @@ const ImagesPoll = () => {
                             <div className="poll-content">
                                 {icons.map((el: icon, index: number) => {
                                     return (
-                                        <div className="poll-icon img-poll-icon" key={index}>
+                                        <div
+                                            className="poll-icon img-poll-icon"
+                                            key={index}
+                                        >
                                             <div>
                                                 {el.type === "like" ? (
                                                     <img
@@ -266,14 +269,16 @@ const ImagesPoll = () => {
                     </h3>
                     <div className="container">
                         <div className="icons like">
-                            <div className="icon-holder">
-                                <input
-                                    type="checkbox"
-                                    name=""
-                                    id="like"
-                                    onChange={handleCheckBoxChange}
-                                />
-                                <img src={like} alt="Like icon" />
+                            <div>
+                                <label className="icon-holder" htmlFor="like">
+                                    <input
+                                        type="checkbox"
+                                        name=""
+                                        id="like"
+                                        onChange={handleCheckBoxChange}
+                                    />
+                                    <img src={like} alt="Like icon" />
+                                </label>
                             </div>
                             <div className="custom-file-upload">
                                 <label htmlFor="file-upload">
@@ -291,7 +296,7 @@ const ImagesPoll = () => {
                         </div>
 
                         <div className="icons love">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="love">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -299,7 +304,7 @@ const ImagesPoll = () => {
                                     onChange={handleCheckBoxChange}
                                 />
                                 <img src={love} alt="Love icon" />
-                            </div>
+                            </label>
                             <div className="custom-file-upload">
                                 <label htmlFor="file-upload-love">
                                     <img src={uploadImg} alt="" />
@@ -316,7 +321,7 @@ const ImagesPoll = () => {
                         </div>
 
                         <div className="icons insight">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="insight">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -328,7 +333,7 @@ const ImagesPoll = () => {
                                     src={insight}
                                     alt="insight icon"
                                 />
-                            </div>
+                            </label>
                             <div className="custom-file-upload">
                                 <label htmlFor="file-upload-insight">
                                     <img src={uploadImg} alt="" />
@@ -347,7 +352,7 @@ const ImagesPoll = () => {
                             </div>
                         </div>
                         <div className="icons support">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="support">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -355,7 +360,7 @@ const ImagesPoll = () => {
                                     onChange={handleCheckBoxChange}
                                 />
                                 <img src={support} alt="support icon" />
-                            </div>
+                            </label>
                             <div className="custom-file-upload">
                                 <label htmlFor="file-upload-support">
                                     <img src={uploadImg} alt="" />
@@ -374,7 +379,7 @@ const ImagesPoll = () => {
                             </div>
                         </div>
                         <div className="icons curious">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="curious">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -382,7 +387,7 @@ const ImagesPoll = () => {
                                     onChange={handleCheckBoxChange}
                                 />
                                 <img src={curious} alt="curious icon" />
-                            </div>
+                            </label>
                             <div className="custom-file-upload">
                                 <label htmlFor="file-upload-curious">
                                     <img src={uploadImg} alt="" />

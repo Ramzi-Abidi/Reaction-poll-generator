@@ -236,7 +236,7 @@ const Home = () => {
                     </h3>
                     <div className="container">
                         <div className="icons like">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="like">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -244,7 +244,7 @@ const Home = () => {
                                     onChange={handleCheckBoxChange}
                                 />
                                 <img src={like} alt="Like icon" />
-                            </div>
+                            </label>
                             <div>
                                 <input
                                     className="icon-input"
@@ -262,7 +262,7 @@ const Home = () => {
                         </div>
 
                         <div className="icons love">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="love">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -270,7 +270,7 @@ const Home = () => {
                                     onChange={handleCheckBoxChange}
                                 />
                                 <img src={love} alt="Love icon" />
-                            </div>
+                            </label>
                             <div>
                                 <input
                                     className="icon-input"
@@ -288,7 +288,7 @@ const Home = () => {
                         </div>
 
                         <div className="icons insight">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="insight">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -300,7 +300,7 @@ const Home = () => {
                                     src={insight}
                                     alt="insight icon"
                                 />
-                            </div>
+                            </label>
                             <div>
                                 <input
                                     className="icon-input"
@@ -317,7 +317,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="icons support">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="support">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -325,7 +325,7 @@ const Home = () => {
                                     onChange={handleCheckBoxChange}
                                 />
                                 <img src={support} alt="support icon" />
-                            </div>
+                            </label>
                             <div>
                                 <input
                                     className="icon-input"
@@ -342,7 +342,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="icons curious">
-                            <div className="icon-holder">
+                            <label className="icon-holder" htmlFor="curious">
                                 <input
                                     type="checkbox"
                                     name=""
@@ -350,7 +350,7 @@ const Home = () => {
                                     onChange={handleCheckBoxChange}
                                 />
                                 <img src={curious} alt="curious icon" />
-                            </div>
+                            </label>
                             <div>
                                 <input
                                     className="icon-input"

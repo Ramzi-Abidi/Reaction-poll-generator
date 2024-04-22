@@ -175,7 +175,7 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: 1.25rem;
     align-items: center;
     gap: 10px;
     margin: 0 0.75rem;
@@ -194,13 +194,17 @@ input[type="checkbox"] {
 .icon-holder img {
     width: 50px;
 }
+.icons .icon-holder img {
+    width: 40px;
+    cursor: pointer;
+}
 @media (max-width: 768px) {
     .icon-holder img {
         width: 38px;
     }
 }
 .icon-holder img.insight-img {
-    width: 35px;
+    width: 28px;
 }
 /* Arrow displayed in poll content */
 .arrow-container {
