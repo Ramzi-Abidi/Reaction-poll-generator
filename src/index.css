@@ -14,6 +14,8 @@
     --color-smoke: #e4e4e4;
 }
 body {
+    /* background: radial-gradient(68.14% 121.75% at 50% 50%, hsla(0, 0%, 100%, 0) 0, #c9e3fa 100%); */
+    /* background: linear-gradient(90deg, #e9e9e9 1px, transparent 0), linear-gradient(180deg, #e9e9e9 1px, transparent 0); */
     font-family: "Montserrat", sans-serif;
 }
 li {
@@ -307,4 +309,10 @@ input[type="file"] {
 .first-link:hover,
 .second-link:hover {
     text-decoration: underline;
+}
+.reaction-poll-description {
+    width: 650px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 3rem;
 }
