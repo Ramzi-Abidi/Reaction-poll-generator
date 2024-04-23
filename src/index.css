@@ -311,7 +311,7 @@ input[type="file"] {
     text-decoration: underline;
 }
 .reaction-poll-description {
-    width: 650px;
+    max-width: 650px;
     text-align: center;
     color: #333;
     margin-bottom: 3rem;
