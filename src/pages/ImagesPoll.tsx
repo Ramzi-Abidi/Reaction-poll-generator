@@ -149,7 +149,7 @@ const ImagesPoll = () => {
             return alert("Invalid inputs!");
         }
         try {
-            html2canvas(element).then((canvas) => {
+            html2canvas(element, { scale: 2 }).then((canvas) => {
                 const img: string = canvas.toDataURL("image/png");
                 const a: HTMLAnchorElement = document.createElement("a");
                 a.href = img;
