@@ -142,7 +142,7 @@ const Home = () => {
             return alert("Invalid inputs!");
         }
         try {
-            html2canvas(element).then((canvas) => {
+            html2canvas(element, { scale: 2 }).then((canvas) => {
                 const img = canvas.toDataURL("image/png");
 
                 const a = document.createElement("a");
