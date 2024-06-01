@@ -6,12 +6,12 @@ import curious from "/imgs/Linkedin-Curious-Icon.png";
 import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Arrow from "../components/Arrow";
-import { icon } from "../utils/interfaces";
 import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
 import { Header } from "../components/Header";
 // import AnimatePage from "./AnimatedPage";
 import Links from "../components/Links";
+import { icon } from "../utils/interfaces";
 
 const TextPoll = () => {
     const [pollTitle, setPollTitle] = useState("");
