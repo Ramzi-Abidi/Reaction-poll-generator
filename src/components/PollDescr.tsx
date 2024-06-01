@@ -2,7 +2,7 @@ const PollDescr = () => {
     return (
         <div className="reaction-poll-description">
             <p>
-                Create LinkedIn <b>Polls</b> and <b>Carousels</b> in Minutes! ✅
+                Create LinkedIn <b>Polls</b> and <b>Customize text</b> in Minutes! ✅
             </p>
             <br />
             <p>
