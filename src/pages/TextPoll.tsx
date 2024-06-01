@@ -10,9 +10,10 @@ import { icon } from "../utils/interfaces";
 import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
 import { Header } from "../components/Header";
-import AnimatePage from "./AnimatedPage";
+// import AnimatePage from "./AnimatedPage";
+import Links from "../components/Links";
 
-const Home = () => {
+const TextPoll = () => {
     const [pollTitle, setPollTitle] = useState("");
     const [icons, setIcons] = useState<icon[]>([]);
     const [allIconsStates, setAllIconsStates] = useState({
@@ -181,10 +182,11 @@ const Home = () => {
     };
 
     return (
-        <AnimatePage>
             <section>
                 <div className="intro">
                     <Header pollIcon={pollIcon} />
+                    <Links />
+
                     <div className="content" id="content">
                         <div className="container">
                             <div className="title">{renderTitle()}</div>
@@ -412,8 +414,7 @@ const Home = () => {
                     </div>
                 </form>
             </section>
-        </AnimatePage>
     );
 };
 
-export default Home;
+export default TextPoll;

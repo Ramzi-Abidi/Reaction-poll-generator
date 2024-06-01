@@ -11,7 +11,8 @@ import { icon } from "../utils/interfaces";
 import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
 import { Header } from "../components/Header";
-import AnimatePage from "./AnimatedPage";
+// import AnimatePage from "./AnimatedPage";
+import Links from "../components/Links";
 
 const ImagesPoll = () => {
     const [pollTitle, setPollTitle] = useState<string>("");
@@ -184,11 +185,10 @@ const ImagesPoll = () => {
     };
 
     return (
-        <AnimatePage>
             <section>
                 <div className="intro">
                     <Header pollIcon={pollIcon} />
-
+                    <Links />
                     <div className="content" id="content">
                         <div className="container">
                             <div className="title">{renderTitle()}</div>
@@ -451,7 +451,6 @@ const ImagesPoll = () => {
                     </div>
                 </form>
             </section>
-        </AnimatePage>
     );
 };
 
