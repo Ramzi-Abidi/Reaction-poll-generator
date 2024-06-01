@@ -49,7 +49,7 @@ const Home = () => {
 
                         <div className="">
                             <p>
-                                Create LinkedIn Polls and Carousels <br />
+                                Create LinkedIn Polls and Modify Texts <br />
                                 Effortelessly! ✅
                             </p>
                         </div>

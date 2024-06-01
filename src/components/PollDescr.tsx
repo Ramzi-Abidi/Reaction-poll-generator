@@ -7,9 +7,8 @@ const PollDescr = () => {
             <br />
             <p>
                 Easily craft custom Text/Image Polls and{" "}
-                Carousels to gather feedback, spot trends, or
-                spark conversations on LinkedIn. Engage your network and gain
-                insights effortlessly.
+                Customize text to gather feedback, spot trends, or
+                spark conversations on LinkedIn. Engage your network. 📊🗳️
             </p>
             {/* <p>
                 <p><strong>Get started now!</strong> 📊🗳️</p>
