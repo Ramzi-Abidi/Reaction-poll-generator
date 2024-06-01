@@ -7,7 +7,6 @@ import {
     Image,
 } from "@react-pdf/renderer";
 import { IPage } from "../features/carousel/carouselSlice";
-import { useState } from "react";
 
 const styles = StyleSheet.create({
     page: {

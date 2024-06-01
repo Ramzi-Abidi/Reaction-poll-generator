@@ -1,7 +1,5 @@
 import * as React from "react";
 import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import FormControl from "@mui/joy/FormControl";
 import Textarea from "@mui/joy/Textarea";
 import IconButton from "@mui/joy/IconButton";
 import Menu from "@mui/joy/Menu";
@@ -11,6 +9,7 @@ import FormatBold from "@mui/icons-material/FormatBold";
 import FormatItalic from "@mui/icons-material/FormatItalic";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
+import { FormControl } from "@mui/material";
 
 interface ITextAreaProps {
     textAreaValue: string;
@@ -50,7 +49,7 @@ export default function TextArea(props: ITextAreaProps) {
                             }
                         >
                             <FormatBold />
-                            <KeyboardArrowDown fontSize="md" />
+                            <KeyboardArrowDown/>
                         </IconButton>
                         <Menu
                             anchorEl={anchorEl}
@@ -72,7 +71,7 @@ export default function TextArea(props: ITextAreaProps) {
                                 >
                                     <ListItemDecorator>
                                         {fontWeight === weight && (
-                                            <Check fontSize="sm" />
+                                            <Check />
                                         )}
                                     </ListItemDecorator>
                                     {weight === "200" ? "lighter" : weight}

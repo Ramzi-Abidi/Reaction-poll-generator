@@ -405,7 +405,7 @@ const TextFormatter = () => {
 
     const handleCopyText = (typeOfText: string) => {
         let copiedText = "";
-        let tooltip = null;
+        let tooltip: HTMLElement | null = null;
         if (typeOfText == "bold") {
             copiedText = boldText(textAreaValue);
             tooltip = document.getElementById("boldMyTooltip");
@@ -434,9 +434,9 @@ const TextFormatter = () => {
         navigator.clipboard.writeText(copiedText);
 
         if (tooltip) {
-            tooltip.innerHTML = "Copied!";
+            tooltip!.innerHTML = "Copied!";
             setTimeout(() => {
-                tooltip.innerHTML = "Copy to clipboard";
+                tooltip!.innerHTML = "Copy to clipboard";
             }, 2500);
         }
     };
