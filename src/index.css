@@ -20,6 +20,7 @@
 }
 body {
     font-family: "Montserrat", sans-serif;
+    /* background: #f0f5ff; */
 }
 li {
     text-decoration: none;
@@ -311,9 +312,6 @@ input[type="file"] {
     margin: 0 7px;
     padding: 5px 20px;
 }
-/* .first-link:hover,
-.second-link:hover {
-} */
 .reaction-poll-description {
     max-width: 650px;
     text-align: center;

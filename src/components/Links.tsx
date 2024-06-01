@@ -37,13 +37,13 @@ const Links = () => {
                         className="third-link"
                         style={{
                             background:
-                                location.pathname === "/carousel"
+                                location.pathname === "/text-formatter"
                                     ? "#c9e3fa54"
                                     : "transparent",
                         }}
                     >
-                        <Link to="/carousel" style={{ padding: 5 }}>
-                            Carousel generator
+                        <Link to="/text-formatter" style={{ padding: 5 }}>
+                            Text formatter
                         </Link>
                     </li>
                 </ul>

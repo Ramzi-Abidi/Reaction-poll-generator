@@ -26,9 +26,15 @@ const Home = () => {
                                 Images poll
                             </Link>
                         </li>
-                        <li className="third-link">
+                        {/* <li className="third-link">
                             <Link to="/carousel" style={{ padding: 5 }}>
                                 Carousel generator
+                            </Link>
+                        </li> */}
+
+                        <li className="third-link">
+                            <Link to="/text-formatter" style={{ padding: 5 }}>
+                                Format text
                             </Link>
                         </li>
                     </ul>

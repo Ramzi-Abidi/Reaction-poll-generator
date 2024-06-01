@@ -11,3 +11,18 @@
     width: 500px;
     height: 120px;
 }
+.carouselContent {
+    display: flex;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-title {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    gap: 0.5rem;
+}

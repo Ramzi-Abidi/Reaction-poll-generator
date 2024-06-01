@@ -2,56 +2,43 @@ import { Header } from "../components/Header";
 import pollIcon from "/imgs/poll.png";
 import Links from "../components/Links";
 import "../styles/carousel.css";
-import { PDFDownloadLink, PDFViewer, Page, StyleSheet } from "@react-pdf/renderer";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import MyDocument from "../components/Document";
+import { useDispatch, useSelector } from "react-redux";
+import { IPage, carouselActions } from "../features/carousel/carouselSlice";
+import { RootState } from "../store";
+import CarouselConf from "../components/CarouselConf";
+import { Button } from "@mui/material";
 import { useState } from "react";
 
 const Carousel = () => {
-    const styles = StyleSheet.create({
-        page: {
+    const [textArea, setTextArea] = useState("");
+
+    const dispatch = useDispatch();
+    const page: IPage = {
+        size: { width: 1080, height: 1350 },
+        style: {
             display: "flex",
             flexDirection: "column",
             backgroundColor: "#E4E4E4",
         },
-        section: {
-            borderRadius: "8px",
-            margin: 30,
-            padding: 20,
-            backgroundColor: "#FFF",
-            color: "#000",
-        },
-        image: {
-            width: 60,
-            marginBottom: 20,
-        },
-        text: {
-            fontSize: 45,
-            fontWeight: "bold",
-        },
-        introSection: {
-            borderRadius: "8px",
-            margin: 30,
-            padding: 50,
-            backgroundColor: "#FFF",
-            color: "#000",
-        },
-        backgroundPage: {
-            position: "absolute",
-            minWidth: "100%",
-            minHeight: "100%",
-            display: "flex",
-            height: "100%",
-            width: "100%",
-        },
-    });
-    const [pages, setPages] = useState<any>([]);
-    const addPage = () => {
-        setPages([
-            ...pages,
-            <Page size="A5" style={styles.page} key={pages.length}></Page>,
-        ]);
+        key: 1,
+        content: "Hello world",
+    };
+    const addPageHandler = () => {
+        dispatch(carouselActions.addPage(page));
     };
 
+    const pages: IPage[] = useSelector((state: RootState) => {
+        return state.carouselReducer.pages;
+    });
+
+    const styles = useSelector((state: RootState) => {
+        return state.stylesReducer.styles;
+    });
+    // const handleChange=()=>{
+
+    // }
     return (
         <section>
             <div className="intro">
@@ -62,22 +49,40 @@ const Carousel = () => {
                 style={{
                     display: "flex",
                     justifyContent: "center",
-                    flexDirection: "column",
-                    alignItems: "center",
+                    flexDirection: "row",
+                    marginTop: "2rem",
                 }}
             >
-                <PDFViewer width="750" height="500">
-                    <MyDocument pages={pages} />
-                </PDFViewer>
-                <PDFDownloadLink
-                    document={<MyDocument pages={pages} />}
-                    fileName="report.pdf"
-                    className="btn btn-primary"
-                    style={{ marginRight: 10 }}
-                >
-                    <span>Download Report</span>
-                </PDFDownloadLink>
-                <button onClick={() => addPage()}> add page</button>
+                <div className="">
+                    <PDFViewer width={750} height={500}>
+                        <MyDocument
+                            pages={pages}
+                            styles={styles}
+                            textArea={textArea}
+                        />
+                    </PDFViewer>
+                </div>
+                <div>
+                    <CarouselConf />
+                    <textarea name="" id="" value={textArea} onChange={(e)=>setTextArea(e.target.value)}>{textArea}</textarea>
+                    <div className="buttons">
+                        <Button onClick={addPageHandler}>Add page</Button>
+                        <PDFDownloadLink
+                            document={
+                                <MyDocument
+                                    pages={pages}
+                                    styles={styles}
+                                    textArea={textArea}
+                                />
+                            }
+                            fileName="Report.pdf"
+                            className="btn btn-primary"
+                            style={{ marginRight: 10 }}
+                        >
+                            <Button variant="contained">Download</Button>
+                        </PDFDownloadLink>
+                    </div>
+                </div>
             </div>
         </section>
     );

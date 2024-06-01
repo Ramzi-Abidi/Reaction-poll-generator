@@ -6,15 +6,13 @@ type headerProp = {
 
 export const Header: React.FC<headerProp> = (prop: headerProp) => {
     const { pollIcon } = prop;
-    // const location = useLocation();
-
     return (
         <>
             <div className="header">
                 <div className="star-poll-img-container">
-                <Link to="/">
-                    <img src={pollIcon} alt="Linkedin Engagement" />
-                </Link>
+                    <Link to="/">
+                        <img src={pollIcon} alt="Linkedin Engagement" />
+                    </Link>
                 </div>
 
                 <div className="main-title"> Pollify </div>
