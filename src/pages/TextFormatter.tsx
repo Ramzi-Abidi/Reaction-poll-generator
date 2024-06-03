@@ -211,6 +211,69 @@ const TextFormatter = () => {
             .join("");
     };
 
+    const boldSansText = (text: string): string => {
+        const charMap: { [key: string]: string } = {
+            A: "\u{1D5D4}",
+            B: "\u{1D5D5}",
+            C: "\u{1D5D6}",
+            D: "\u{1D5D7}",
+            E: "\u{1D5D8}",
+            F: "\u{1D5D9}",
+            G: "\u{1D5DA}",
+            H: "\u{1D5DB}",
+            I: "\u{1D5DC}",
+            J: "\u{1D5DD}",
+            K: "\u{1D5DE}",
+            L: "\u{1D5DF}",
+            M: "\u{1D5E0}",
+            N: "\u{1D5E1}",
+            O: "\u{1D5E2}",
+            P: "\u{1D5E3}",
+            Q: "\u{1D5E4}",
+            R: "\u{1D5E5}",
+            S: "\u{1D5E6}",
+            T: "\u{1D5E7}",
+            U: "\u{1D5E8}",
+            V: "\u{1D5E9}",
+            W: "\u{1D5EA}",
+            X: "\u{1D5EB}",
+            Y: "\u{1D5EC}",
+            Z: "\u{1D5ED}",
+            a: "\u{1D5EE}",
+            b: "\u{1D5EF}",
+            c: "\u{1D5F0}",
+            d: "\u{1D5F1}",
+            e: "\u{1D5F2}",
+            f: "\u{1D5F3}",
+            g: "\u{1D5F4}",
+            h: "\u{1D5F5}",
+            i: "\u{1D5F6}",
+            j: "\u{1D5F7}",
+            k: "\u{1D5F8}",
+            l: "\u{1D5F9}",
+            m: "\u{1D5FA}",
+            n: "\u{1D5FB}",
+            o: "\u{1D5FC}",
+            p: "\u{1D5FD}",
+            q: "\u{1D5FE}",
+            r: "\u{1D5FF}",
+            s: "\u{1D600}",
+            t: "\u{1D601}",
+            u: "\u{1D602}",
+            v: "\u{1D603}",
+            w: "\u{1D604}",
+            x: "\u{1D605}",
+            y: "\u{1D606}",
+            z: "\u{1D607}",
+            " ": " ",
+        };
+
+        return text
+            .split("")
+            .map((char) => charMap[char])
+            .join("");
+    };
+
     const circledText = (text: string): string => {
         const charMap: { [key: string]: string } = {
             A: "\u{24B6}",
@@ -487,7 +550,7 @@ const TextFormatter = () => {
                         <div className="output-textarea">
                             <p className="output-textarea-title">Bold sans:</p>
                             <p className="result-text">
-                                {boldText(textAreaValue)}
+                                {boldSansText(textAreaValue)}
                             </p>
                             <div className="tooltip">
                                 <button
