@@ -1,7 +1,7 @@
 const HeroTitle = () => {
     return (
         <h1 className="hero-title">
-            Grow Your LinkedIn Audience <br />
+            Boost Your Audience on LinkedIn <br />
             10x Faster
         </h1>
     );
