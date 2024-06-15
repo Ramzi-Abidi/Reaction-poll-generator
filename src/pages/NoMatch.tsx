@@ -7,7 +7,6 @@ const NoMatch = () => {
         <AnimatePage>
             <section className="intro">
                 <Header pollIcon={pollIcon} />
-
                 <div>404 Page not found!</div>
             </section>
         </AnimatePage>

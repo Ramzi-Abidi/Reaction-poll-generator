@@ -13,7 +13,6 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/text-poll" element={<TextPoll />} />
                     <Route path="/image-poll" element={<ImageUploadPoll />} />
-                    {/* <Route path="/carousel" element={<Carousel />} /> */}
                     <Route path="/text-formatter" element={<TextFormatter />} />
                     <Route path="*" element={<NoMatch />} />
                 </Routes>

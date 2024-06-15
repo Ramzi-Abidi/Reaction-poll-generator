@@ -11,7 +11,6 @@ import { icon } from "../utils/interfaces";
 import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
 import { Header } from "../components/Header";
-// import AnimatePage from "./AnimatedPage";
 import Links from "../components/Links";
 
 const ImagesPoll = () => {
