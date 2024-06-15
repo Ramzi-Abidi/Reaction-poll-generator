@@ -56,7 +56,7 @@ const Home = () => {
                     </div>
                     <div>
                         <p className="copyright">
-                            Made With &lt;3 By Ramzi | All Rights Reserved
+                            All Rights Reserved
                         </p>
                     </div>
                 </div>

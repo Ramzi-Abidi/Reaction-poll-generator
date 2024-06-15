@@ -259,6 +259,7 @@ input[type="checkbox"] {
     transition: 0.5s;
 }
 .download:hover {
+    color: var(--color-snow);
     background-color: var(--hover-color-grass);
 }
 /* Github button */
