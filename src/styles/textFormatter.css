@@ -92,16 +92,13 @@
 .top-spacing {
     margin-top: 10rem;
 }
-
 .tooltip {
     width: 100%;
     position: relative;
     display: inline-block;
 }
-
 .tooltip .tooltiptext {
     visibility: hidden;
-    /* width: 140px; */
     background-color: #555;
     color: #fff;
     text-align: center;
