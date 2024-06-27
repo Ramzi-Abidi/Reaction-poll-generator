@@ -504,6 +504,47 @@ const TextFormatter = () => {
         }
     };
 
+    // const handleCopyText = (typeOfText: string) => {
+    //     const textFormatters: { [key: string]: (text: string) => string } = {
+    //         "bold": boldText,
+    //         "bold-sans": boldText,
+    //         "bold-underline": boldUnderlineText,
+    //         "circled-negative": circledNegativeText,
+    //         "italicize-sans": italicizeSansText,
+    //         "italicize": italicizeText,
+    //         "line-through": lineThroughText,
+    //         "circled": lineThroughText,
+    //     };
+    
+    //     const tooltipIds: { [key: string]: string } = {
+    //         "bold": "boldMyTooltip",
+    //         "bold-sans": "boldSansMyTooltip",
+    //         "bold-underline": "boldUnderlineMyTooltip",
+    //         "circled-negative": "circledNegativeMyTooltip",
+    //         "italicize-sans": "italicSansMyTooltip",
+    //         "italicize": "italicMyTooltip",
+    //         "line-through": "lineThroughMyTooltip",
+    //         "circled": "circledMyTooltip",
+    //     };
+    //     const formatter = textFormatters[typeOfText];
+    //     const tooltipId = tooltipIds[typeOfText];
+    //     let copiedText = "";
+    //     let tooltip: HTMLElement | null = null;
+
+    //     if (formatter) {
+    //         copiedText = formatter(textAreaValue);
+    //         tooltip = document.getElementById(tooltipId);
+    //         navigator.clipboard.writeText(copiedText);
+    //     }
+
+    //     if (tooltip) {
+    //         tooltip.innerHTML = "Copied!";
+    //         setTimeout(() => {
+    //             tooltip!.innerHTML = "Copy to clipboard";
+    //         }, 2500);
+    //     }
+    // };
+
     const outFunc = () => {
         let tooltip = document.getElementById("myTooltip");
         tooltip!.innerHTML = "Copy to clipboard";
