@@ -1,4 +1,3 @@
-import * as React from "react";
 import Box from "@mui/joy/Box";
 import Textarea from "@mui/joy/Textarea";
 import IconButton from "@mui/joy/IconButton";
@@ -10,6 +9,7 @@ import FormatItalic from "@mui/icons-material/FormatItalic";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Check from "@mui/icons-material/Check";
 import { FormControl } from "@mui/material";
+import { useState } from "react";
 
 interface ITextAreaProps {
     textAreaValue: string;
@@ -17,16 +17,14 @@ interface ITextAreaProps {
 }
 
 export default function TextArea(props: ITextAreaProps) {
-
     const textAreaValue = props.textAreaValue;
     const handleChange = props.handleChange;
+    const [italic, setItalic] = useState(false);
+    const [fontWeight, setFontWeight] = useState("normal");
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-    const [italic, setItalic] = React.useState(false);
-    const [fontWeight, setFontWeight] = React.useState("normal");
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     return (
         <FormControl>
-            {/* <FormLabel>Your comment</FormLabel> */}
             <Textarea
                 placeholder="Type something here…"
                 minRows={3}
@@ -49,7 +47,7 @@ export default function TextArea(props: ITextAreaProps) {
                             }
                         >
                             <FormatBold />
-                            <KeyboardArrowDown/>
+                            <KeyboardArrowDown />
                         </IconButton>
                         <Menu
                             anchorEl={anchorEl}
@@ -70,9 +68,7 @@ export default function TextArea(props: ITextAreaProps) {
                                     sx={{ fontWeight: weight }}
                                 >
                                     <ListItemDecorator>
-                                        {fontWeight === weight && (
-                                            <Check />
-                                        )}
+                                        {fontWeight === weight && <Check />}
                                     </ListItemDecorator>
                                     {weight === "200" ? "lighter" : weight}
                                 </MenuItem>
@@ -86,7 +82,6 @@ export default function TextArea(props: ITextAreaProps) {
                         >
                             <FormatItalic />
                         </IconButton>
-                        {/* <Button sx={{ ml: "auto" }}>Send</Button> */}
                     </Box>
                 }
                 sx={{

@@ -55,9 +55,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div>
-                        <p className="copyright">
-                            All Rights Reserved
-                        </p>
+                        <p className="copyright">All Rights Reserved</p>
                     </div>
                 </div>
             </footer>

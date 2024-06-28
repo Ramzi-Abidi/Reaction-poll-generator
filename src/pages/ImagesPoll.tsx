@@ -29,7 +29,7 @@ const ImagesPoll = () => {
     const handleImageUploadChange = (e: any, propertyName: string) => {
         const file = e.target.files[0];
         if (file) {
-            const reader: FileReader = new FileReader();
+            const reader = new FileReader();
             reader.onload = () => {
                 setAllIconsStates((prevState) => ({
                     ...prevState,
