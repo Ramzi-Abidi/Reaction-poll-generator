@@ -4,10 +4,10 @@ import pollIcon from "/imgs/poll.png";
 import TextArea from "../components/textArea";
 import "../styles/textFormatter.css";
 import { ChangeEvent, useState } from "react";
-import { charMapType } from "../common/types";
+import { charMap } from "../utils/types";
 
 const TextFormatter = () => {
-    const [textAreaValue, setTextAreaValue] = useState<string>("");
+    const [textAreaValue, setTextAreaValue] = useState("");
 
     const lineThroughText = (text: string) => {
         const strikethroughChar = "\u0336"; // Unicode for strikethrough
@@ -22,8 +22,8 @@ const TextFormatter = () => {
         setTextAreaValue(() => text);
     };
 
-    const italicizeText = (text: string) => {
-        const charMap: charMapType = {
+    const italicizeText = (text: string): string => {
+        const charMap: charMap = {
             A: "\u{1D434}",
             B: "\u{1D435}",
             C: "\u{1D436}",
@@ -76,17 +76,59 @@ const TextFormatter = () => {
             x: "\u{1D465}",
             y: "\u{1D466}",
             z: "\u{1D467}",
-            " ": " ",
+            "0": "\u{1D7D8}",
+            "1": "\u{1D7D9}",
+            "2": "\u{1D7DA}",
+            "3": "\u{1D7DB}",
+            "4": "\u{1D7DC}",
+            "5": "\u{1D7DD}",
+            "6": "\u{1D7DE}",
+            "7": "\u{1D7DF}",
+            "8": "\u{1D7E0}",
+            "9": "\u{1D7E1}",
+            "!": "\u{2757}",
+            "?": "\u{2753}",
+            ".": "\u{2024}",
+            ",": "\u{2E32}",
+            ":": "\u{2236}",
+            ";": "\u{204F}",
+            "-": "\u{2010}",
+            _: "\u{FF3F}",
+            "(": "\u{FF08}",
+            ")": "\u{FF09}",
+            "[": "\u{FF3B}",
+            "]": "\u{FF3D}",
+            "{": "\u{FF5B}",
+            "}": "\u{FF5D}",
+            "+": "\u{FF0B}",
+            "=": "\u{FF1D}",
+            "/": "\u{FF0F}",
+            "\\": "\u{FF3C}",
+            "|": "\u{FF5C}",
+            "*": "\u{FF0A}",
+            "&": "\u{FF06}",
+            "%": "\u{FF05}",
+            $: "\u{FF04}",
+            "#": "\u{FF03}",
+            "@": "\u{FF20}",
+            "^": "\u{FF3E}",
+            "`": "\u{FF40}",
+            "~": "\u{FF5E}",
+            "'": "\u{FF07}",
+            '"': "\u{FF02}",
+            "<": "\u{FF1C}",
+            ">": "\u{FF1E}",
+            " ": " ", // Ensure space remains unchanged
         };
 
         return text
             .split("")
-            .map((char: string) => charMap[char])
+            .map((char) => charMap[char] || char)
             .join("");
     };
 
-    const italicizeSansText = (text: string) => {
-        const charMap: { [key: string]: string } = {
+    const italicizeSansText = (text: string): string => {
+        const charMap: charMap = {
             A: "\u{1D608}",
             B: "\u{1D609}",
             C: "\u{1D60A}",
@@ -139,17 +181,59 @@ const TextFormatter = () => {
             x: "\u{1D639}",
             y: "\u{1D63A}",
             z: "\u{1D63B}",
-            " ": " ",
+            "0": "\u{1D7E2}",
+            "1": "\u{1D7E3}",
+            "2": "\u{1D7E4}",
+            "3": "\u{1D7E5}",
+            "4": "\u{1D7E6}",
+            "5": "\u{1D7E7}",
+            "6": "\u{1D7E8}",
+            "7": "\u{1D7E9}",
+            "8": "\u{1D7EA}",
+            "9": "\u{1D7EB}",
+            "!": "\u{2757}",
+            "?": "\u{2753}",
+            ".": "\u{2024}",
+            ",": "\u{2E32}",
+            ":": "\u{2236}",
+            ";": "\u{204F}",
+            "-": "\u{2010}",
+            _: "\u{FF3F}",
+            "(": "\u{FF08}",
+            ")": "\u{FF09}",
+            "[": "\u{FF3B}",
+            "]": "\u{FF3D}",
+            "{": "\u{FF5B}",
+            "}": "\u{FF5D}",
+            "+": "\u{FF0B}",
+            "=": "\u{FF1D}",
+            "/": "\u{FF0F}",
+            "\\": "\u{FF3C}",
+            "|": "\u{FF5C}",
+            "*": "\u{FF0A}",
+            "&": "\u{FF06}",
+            "%": "\u{FF05}",
+            $: "\u{FF04}",
+            "#": "\u{FF03}",
+            "@": "\u{FF20}",
+            "^": "\u{FF3E}",
+            "`": "\u{FF40}",
+            "~": "\u{FF5E}",
+            "'": "\u{FF07}",
+            '"': "\u{FF02}",
+            "<": "\u{FF1C}",
+            ">": "\u{FF1E}",
+            " ": " ", // Ensure space remains unchanged
         };
 
         return text
             .split("")
-            .map((char: string) => charMap[char])
+            .map((char) => charMap[char] || char)
             .join("");
     };
 
     const boldText = (text: string): string => {
-        const charMap: { [key: string]: string } = {
+        const charMap: charMap = {
             A: "\u{1D400}",
             B: "\u{1D401}",
             C: "\u{1D402}",
@@ -202,6 +286,48 @@ const TextFormatter = () => {
             x: "\u{1D431}",
             y: "\u{1D432}",
             z: "\u{1D433}",
+            "0": "\u{1D7CE}",
+            "1": "\u{1D7CF}",
+            "2": "\u{1D7D0}",
+            "3": "\u{1D7D1}",
+            "4": "\u{1D7D2}",
+            "5": "\u{1D7D3}",
+            "6": "\u{1D7D4}",
+            "7": "\u{1D7D5}",
+            "8": "\u{1D7D6}",
+            "9": "\u{1D7D7}",
+            "!": "\u{2757}",
+            "?": "\u{2753}",
+            ".": "\u{2024}",
+            ",": "\u{2E32}",
+            ":": "\u{2236}",
+            ";": "\u{204F}",
+            "-": "\u{2010}",
+            _: "\u{FF3F}",
+            "(": "\u{FF08}",
+            ")": "\u{FF09}",
+            "[": "\u{FF3B}",
+            "]": "\u{FF3D}",
+            "{": "\u{FF5B}",
+            "}": "\u{FF5D}",
+            "+": "\u{FF0B}",
+            "=": "\u{FF1D}",
+            "/": "\u{FF0F}",
+            "\\": "\u{FF3C}",
+            "|": "\u{FF5C}",
+            "*": "\u{FF0A}",
+            "&": "\u{FF06}",
+            "%": "\u{FF05}",
+            $: "\u{FF04}",
+            "#": "\u{FF03}",
+            "@": "\u{FF20}",
+            "^": "\u{FF3E}",
+            "`": "\u{FF40}",
+            "~": "\u{FF5E}",
+            "'": "\u{FF07}",
+            '"': "\u{FF02}",
+            "<": "\u{FF1C}",
+            ">": "\u{FF1E}",
             " ": " ", // Ensure space remains unchanged
         };
 
@@ -265,12 +391,54 @@ const TextFormatter = () => {
             x: "\u{1D605}",
             y: "\u{1D606}",
             z: "\u{1D607}",
+            "0": "\u{1D7EC}",
+            "1": "\u{1D7ED}",
+            "2": "\u{1D7EE}",
+            "3": "\u{1D7EF}",
+            "4": "\u{1D7F0}",
+            "5": "\u{1D7F1}",
+            "6": "\u{1D7F2}",
+            "7": "\u{1D7F3}",
+            "8": "\u{1D7F4}",
+            "9": "\u{1D7F5}",
+            "!": "\u{2757}",
+            "?": "\u{2753}",
+            ".": "\u{2024}",
+            ",": "\u{2E32}",
+            ":": "\u{2236}",
+            ";": "\u{204F}",
+            "-": "\u{2010}",
+            _: "\u{FF3F}",
+            "(": "\u{FF08}",
+            ")": "\u{FF09}",
+            "[": "\u{FF3B}",
+            "]": "\u{FF3D}",
+            "{": "\u{FF5B}",
+            "}": "\u{FF5D}",
+            "+": "\u{FF0B}",
+            "=": "\u{FF1D}",
+            "/": "\u{FF0F}",
+            "\\": "\u{FF3C}",
+            "|": "\u{FF5C}",
+            "*": "\u{FF0A}",
+            "&": "\u{FF06}",
+            "%": "\u{FF05}",
+            $: "\u{FF04}",
+            "#": "\u{FF03}",
+            "@": "\u{FF20}",
+            "^": "\u{FF3E}",
+            "`": "\u{FF40}",
+            "~": "\u{FF5E}",
+            "'": "\u{FF07}",
+            '"': "\u{FF02}",
+            "<": "\u{FF1C}",
+            ">": "\u{FF1E}",
             " ": " ",
         };
 
         return text
             .split("")
-            .map((char) => charMap[char])
+            .map((char) => charMap[char] || char)
             .join("");
     };
 
@@ -515,7 +683,7 @@ const TextFormatter = () => {
     //         "line-through": lineThroughText,
     //         "circled": lineThroughText,
     //     };
-    
+
     //     const tooltipIds: { [key: string]: string } = {
     //         "bold": "boldMyTooltip",
     //         "bold-sans": "boldSansMyTooltip",
@@ -552,12 +720,12 @@ const TextFormatter = () => {
 
     return (
         <section className="text-formatter">
-            <div className="intro fixed">
+            <div className="intro">
                 <Header pollIcon={pollIcon} />
                 <Links />
             </div>
 
-            <div className="text-formatter-container top-spacing">
+            <div className="text-formatter-container">
                 <div className="text-formatter-content">
                     <p>Enter or copy-paste your text here:</p>
 

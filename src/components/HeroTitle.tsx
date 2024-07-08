@@ -1,9 +1,10 @@
-const HeroTitle = () => {
-    return (
-        <h1 className="hero-title">
-            Boost Your Audience on LinkedIn
-        </h1>
-    );
+type heroTitleProps = {
+    title: string;
+};
+
+const HeroTitle = (props: heroTitleProps) => {
+    const { title } = props;
+    return <h1 className="hero-title">{title}</h1>;
 };
 
 export default HeroTitle;

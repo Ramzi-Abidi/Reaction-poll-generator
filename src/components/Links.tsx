@@ -8,7 +8,7 @@ const Links = () => {
             <nav>
                 <ul>
                     <li
-                        className="first-link"
+                        className="link"
                         style={{
                             background:
                                 location.pathname === "/text-poll"
@@ -21,7 +21,7 @@ const Links = () => {
                         </Link>
                     </li>
                     <li
-                        className="second-link"
+                        className="link"
                         style={{
                             background:
                                 location.pathname === "/image-poll"
@@ -34,7 +34,7 @@ const Links = () => {
                         </Link>
                     </li>
                     <li
-                        className="third-link"
+                        className="link"
                         style={{
                             background:
                                 location.pathname === "/text-formatter"
@@ -44,6 +44,19 @@ const Links = () => {
                     >
                         <Link to="/text-formatter" style={{ padding: 5 }}>
                             Text formatter
+                        </Link>
+                    </li>
+                    <li
+                        className="link"
+                        style={{
+                            background:
+                                location.pathname === "/characters-counter"
+                                    ? "#c9e3fa54"
+                                    : "transparent",
+                        }}
+                    >
+                        <Link to="/characters-counter" style={{ padding: 5 }}>
+                            Characters counter
                         </Link>
                     </li>
                 </ul>

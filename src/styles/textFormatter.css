@@ -1,5 +1,4 @@
 .text-formatter-container {
-    /* width: 50%; */
     margin: 2rem auto;
 }
 @media (max-width: 992px) {
@@ -14,6 +13,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+@media (max-width: 992px) {
+    .text-formatter-content {
+        margin-top: 2.5rem;
+    }
 }
 .text-formatter-content p {
     font-size: 14px;
@@ -83,15 +87,15 @@
 .result-text {
     border: 1px solid #d3d3d3;
 }
-.fixed {
+/* .fixed {
     width: 100%;
     position: fixed;
     background: #fff;
     z-index: 2;
-}
-.top-spacing {
+} */
+/* .top-spacing {
     margin-top: 10rem;
-}
+} */
 .tooltip {
     width: 100%;
     position: relative;

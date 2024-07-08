@@ -1,7 +1,9 @@
-import React from "react";
-import { ArrowProps } from "../utils/interfaces";
+type arrowProps = {
+    iconType: string;
+};
 
-const Arrow: React.FC<ArrowProps> = ({ iconType }) => {
+const Arrow = (props: arrowProps) => {
+    const { iconType } = props;
     const color =
         iconType === "like"
             ? "#2196F3"

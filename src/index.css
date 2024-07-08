@@ -17,10 +17,10 @@
     --color-alge: #7999a9;
     --color-flower: #353866;
     --color-smoke: #e4e4e4;
+    --color-marin-blue: #062c41;
 }
 body {
     font-family: "Montserrat", sans-serif;
-    /* background: #f0f5ff; */
 }
 li {
     text-decoration: none;
@@ -63,16 +63,12 @@ input[type="checkbox"] {
 }
 .container {
     margin: 0 auto;
-    padding: 20px;
-
     @media screen and (max-width: 768px) {
         width: 90%;
     }
-
     @media screen and (min-width: 769px) {
         width: 80%;
     }
-
     @media screen and (min-width: 1024px) {
         width: 80%;
     }
@@ -93,7 +89,7 @@ input[type="checkbox"] {
     text-transform: capitalize;
     font-weight: 700;
     letter-spacing: -0.5px;
-    color: #062c41;
+    color: var(--color-marin-blue);
 }
 @media (max-width: 768px) {
     .main-title {
@@ -114,11 +110,8 @@ input[type="checkbox"] {
     }
 }
 .content {
-    /* background-image: url("/imgs/white-background.jpeg"); */
-    /* background: #333; */
     margin-top: 1rem;
     border-radius: 5px;
-    /* width: 700px; */
     min-width: 700px;
     min-height: 350px;
     padding: 0.75rem;
@@ -161,6 +154,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 1rem;
 }
 @media (max-width: 768px) {
     .bottom-section {
@@ -168,7 +162,6 @@ input[type="checkbox"] {
         gap: 1.25rem;
     }
 }
-
 .poll-title-input {
     height: 30px;
 }
@@ -189,7 +182,7 @@ input[type="checkbox"] {
     margin: 0 0.75rem;
 }
 .img-poll-icon {
-    min-height: 450px;
+    min-height: 420px;
 }
 .poll-icon div {
     max-width: 270px;
@@ -214,7 +207,6 @@ input[type="checkbox"] {
 .icon-holder img.insight-img {
     width: 28px;
 }
-/* Arrow displayed in poll content */
 .arrow-container {
     margin: 0.75rem 0;
     position: relative;
@@ -288,6 +280,11 @@ input[type="checkbox"] {
     padding: 0;
     margin: 1.25rem 0 0 0;
 }
+@media (max-width: 700px) {
+    .links nav ul {
+        flex-direction: column;
+    }
+}
 .links nav ul li a {
     color: #007bff;
 }
@@ -307,11 +304,13 @@ input[type="file"] {
 .custom-file-upload div img span {
     font-size: 12px;
 }
-.first-link,
-.second-link,
-.third-link {
-    margin: 0 7px;
-    padding: 5px 20px;
+.link {
+    margin: 1rem 0.5rem;
+}
+.link a {
+    color: var(--color-marin-blue);
+    font-weight: 500;
+    padding: 0.25rem 1.25rem;
 }
 .reaction-poll-description {
     max-width: 650px;
@@ -325,9 +324,15 @@ input[type="file"] {
     font-size: 2.75rem;
     line-height: 1.25;
     letter-spacing: -0.5px;
-    color: #062c41;
-    margin-bottom: 3rem;
-    margin-top: 5rem;
+    color: var(--color-marin-blue);
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+}
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.75rem;
+        margin-top: 3rem;
+    }
 }
 footer {
     border-top: #f1f1f1;
@@ -338,7 +343,6 @@ footer {
     color: white;
     text-align: center;
     background-color: #f8f9fa;
-    /* background-color: #ffffff; */
     padding: 10px 20px;
 }
 footer .copyright {
@@ -353,6 +357,7 @@ footer .copyright {
     font-weight: bold;
     font-size: 1.5rem;
     text-transform: capitalize;
+    color: var(--color-marin-blue);
 }
 .tools {
     margin-top: 5rem;
@@ -362,6 +367,14 @@ footer .copyright {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+}
+@media (max-width: 768px) {
+    .tools ul {
+        flex-direction: column;
+    }
+    .tools ul li {
+        margin: 0.5rem 0;
+    }
 }
 .tools ul li:hover {
     transition: 0.5s;

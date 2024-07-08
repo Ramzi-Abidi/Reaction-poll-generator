@@ -5,36 +5,36 @@ import PollDescr from "../components/PollDescr";
 import pollIcon from "/imgs/poll.png";
 
 const Home = () => {
+    const title = "Boost Your Audience on LinkedIn";
+
     return (
         <section>
             <div className="intro">
                 <Header pollIcon={pollIcon} />
-                <HeroTitle />
+                <HeroTitle title={title} />
                 <PollDescr />
             </div>
             <div className="tools">
                 <nav>
                     <h1>our tools</h1>
                     <ul>
-                        <li className="first-link">
-                            <Link to="/text-poll" style={{ padding: 5 }}>
-                                Text poll
-                            </Link>
+                        <li className="link">
+                            <Link to="/text-poll">Text poll</Link>
                         </li>
-                        <li className="second-link">
-                            <Link to="/image-poll" style={{ padding: 5 }}>
-                                Images poll
-                            </Link>
+                        <li className="link">
+                            <Link to="/image-poll">Images poll</Link>
                         </li>
                         {/* <li className="third-link">
                             <Link to="/carousel" style={{ padding: 5 }}>
                                 Carousel generator
                             </Link>
                         </li> */}
-
-                        <li className="third-link">
-                            <Link to="/text-formatter" style={{ padding: 5 }}>
-                                Format text
+                        <li className="link">
+                            <Link to="/text-formatter">Format text</Link>
+                        </li>
+                        <li className="link">
+                            <Link to="/characters-counter">
+                                Characters counter
                             </Link>
                         </li>
                     </ul>
@@ -55,9 +55,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div>
-                        <p className="copyright">
-                            All Rights Reserved
-                        </p>
+                        <p className="copyright">All Rights Reserved</p>
                     </div>
                 </div>
             </footer>

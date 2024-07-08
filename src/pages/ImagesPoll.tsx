@@ -7,14 +7,14 @@ import celebrate from "/imgs/Linkedin-Celebrate-icon.png";
 import uploadImg from "/imgs/upload-img.png";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Arrow from "../components/Arrow";
-import { icon } from "../utils/interfaces";
+import { icon } from "../utils/types";
 import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
 import { Header } from "../components/Header";
 import Links from "../components/Links";
 
 const ImagesPoll = () => {
-    const [pollTitle, setPollTitle] = useState<string>("");
+    const [pollTitle, setPollTitle] = useState("");
     const [icons, setIcons] = useState<icon[]>([]);
     const [allIconsStates, setAllIconsStates] = useState({
         likeState: "/imgs/picture.png",
@@ -23,11 +23,11 @@ const ImagesPoll = () => {
         curiousState: "/imgs/picture.png",
         insightState: "/imgs/picture.png",
     });
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [underlinedTitle, setUnderlinedTitle] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [underlinedTitle, setUnderlinedTitle] = useState(false);
 
-    const handleImageUploadChange = (e: any, propertyName: string) => {
-        const file = e.target.files[0];
+    const handleImageUploadChange = (e: ChangeEvent<HTMLInputElement>, propertyName: string) => {
+        const file = e.target.files?.[0];
         if (file) {
             const reader: FileReader = new FileReader();
             reader.onload = () => {
