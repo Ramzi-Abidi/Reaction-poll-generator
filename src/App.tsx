@@ -3,8 +3,8 @@ import TextPoll from "./pages/TextPoll";
 import ImageUploadPoll from "./pages/ImagesPoll";
 import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";
-// import Carousel from "./pages/Carousel";
 import TextFormatter from "./pages/TextFormatter";
+import CharacterCounter from "./pages/CharacterCounter";
 
 const App = () => {
     return (
@@ -14,6 +14,7 @@ const App = () => {
                     <Route path="/text-poll" element={<TextPoll />} />
                     <Route path="/image-poll" element={<ImageUploadPoll />} />
                     <Route path="/text-formatter" element={<TextFormatter />} />
+                    <Route path="/characters-counter" element={<CharacterCounter />} />
                     <Route path="*" element={<NoMatch />} />
                 </Routes>
             </Router>

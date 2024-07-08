@@ -1,6 +1,3 @@
-export interface ArrowProps {
-    iconType: string;
-}
 export type icon = {
     img: string;
     title: string;
@@ -12,4 +9,7 @@ export type iconStates = {
     supportState: string;
     curiousState: string;
     insightState: string;
+};
+export type charMap = {
+    [key: string]: string;
 };

@@ -10,7 +10,7 @@ import pollIcon from "/imgs/poll.png";
 import html2canvas from "html2canvas";
 import { Header } from "../components/Header";
 import Links from "../components/Links";
-import { icon } from "../utils/interfaces";
+import { icon } from "../utils/types";
 
 const TextPoll = () => {
     const [pollTitle, setPollTitle] = useState("");
@@ -166,8 +166,8 @@ const TextPoll = () => {
         setUnderlinedTitle(() => checked);
     };
 
-    const renderTitle = (): JSX.Element => {
-        if (pollTitle == "") {
+    const renderTitle = () => {
+        if (pollTitle === "") {
             return <span style={{ fontWeight: "500" }}>Poll title...</span>;
         }
 
