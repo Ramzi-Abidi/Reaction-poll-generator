@@ -131,14 +131,15 @@ const TextPoll = () => {
 
     const handleDownload = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setIsLoading(() => true);
+
+        setIsLoading(true);
         const element: HTMLElement = document.querySelector(
             ".content",
         ) as HTMLElement;
 
         // user did not choose any icon
         if (icons.length === 0) {
-            setIsLoading(() => false);
+            setIsLoading(false);
             return alert("Invalid inputs!");
         }
         try {
@@ -181,238 +182,237 @@ const TextPoll = () => {
     };
 
     return (
-            <section>
-                <div className="intro">
-                    <Header pollIcon={pollIcon} />
-                    <Links />
+        <section>
+            <div className="intro">
+                <Header pollIcon={pollIcon} />
+                <Links />
 
-                    <div className="content" id="content">
-                        <div className="container">
-                            <div className="title">{renderTitle()}</div>
-                            <div className="poll-content">
-                                {icons.map((el: icon, index: number) => {
-                                    return (
-                                        <div className="poll-icon" key={index}>
-                                            <div>
-                                                {el.type === "like"
-                                                    ? allIconsStates.likeState
-                                                    : el.type === "love"
-                                                    ? allIconsStates.loveState
-                                                    : el.type === "curious"
-                                                    ? allIconsStates.curiousState
-                                                    : el.type === "insight"
-                                                    ? allIconsStates.insightState
-                                                    : allIconsStates.supportState}
-                                            </div>
-                                            <Arrow iconType={el.type} />
-                                            <div className="icon-holder">
-                                                <img
-                                                    src={el.img}
-                                                    alt="Icon"
-                                                    style={
-                                                        el.type === "insight"
-                                                            ? { width: "35px" }
-                                                            : {}
-                                                    }
-                                                />
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="reaction-icons">
-                    <h3
-                        style={{
-                            textAlign: "center",
-                            marginBottom: ".25rem",
-                            marginTop: "0",
-                        }}
-                    >
-                        {" "}
-                        Choose reactions{" "}
-                    </h3>
+                <div className="content" id="content">
                     <div className="container">
-                        <div className="icons like">
-                            <label className="icon-holder" htmlFor="like">
-                                <input
-                                    type="checkbox"
-                                    name=""
-                                    id="like"
-                                    onChange={handleCheckBoxChange}
-                                />
-                                <img src={like} alt="Like icon" />
-                            </label>
-                            <div>
-                                <input
-                                    className="icon-input"
-                                    type="text"
-                                    placeholder="Enter label for like"
-                                    onChange={(e) =>
-                                        handleIconChange(
-                                            "likeState",
-                                            e.target.value,
-                                        )
-                                    }
-                                    value={allIconsStates.likeState}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="icons love">
-                            <label className="icon-holder" htmlFor="love">
-                                <input
-                                    type="checkbox"
-                                    name=""
-                                    id="love"
-                                    onChange={handleCheckBoxChange}
-                                />
-                                <img src={love} alt="Love icon" />
-                            </label>
-                            <div>
-                                <input
-                                    className="icon-input"
-                                    type="text"
-                                    placeholder="Enter label for love"
-                                    onChange={(e) =>
-                                        handleIconChange(
-                                            "loveState",
-                                            e.target.value,
-                                        )
-                                    }
-                                    value={allIconsStates.loveState}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="icons insight">
-                            <label className="icon-holder" htmlFor="insight">
-                                <input
-                                    type="checkbox"
-                                    name=""
-                                    id="insight"
-                                    onChange={handleCheckBoxChange}
-                                />
-                                <img
-                                    className="insight-img"
-                                    src={insight}
-                                    alt="insight icon"
-                                />
-                            </label>
-                            <div>
-                                <input
-                                    className="icon-input"
-                                    type="text"
-                                    placeholder="Enter label for insight"
-                                    onChange={(e) =>
-                                        handleIconChange(
-                                            "insightState",
-                                            e.target.value,
-                                        )
-                                    }
-                                    value={allIconsStates.insightState}
-                                />
-                            </div>
-                        </div>
-                        <div className="icons support">
-                            <label className="icon-holder" htmlFor="support">
-                                <input
-                                    type="checkbox"
-                                    name=""
-                                    id="support"
-                                    onChange={handleCheckBoxChange}
-                                />
-                                <img src={support} alt="support icon" />
-                            </label>
-                            <div>
-                                <input
-                                    className="icon-input"
-                                    type="text"
-                                    placeholder="Enter label for support"
-                                    onChange={(e) =>
-                                        handleIconChange(
-                                            "supportState",
-                                            e.target.value,
-                                        )
-                                    }
-                                    value={allIconsStates.supportState}
-                                />
-                            </div>
-                        </div>
-                        <div className="icons curious">
-                            <label className="icon-holder" htmlFor="curious">
-                                <input
-                                    type="checkbox"
-                                    name=""
-                                    id="curious"
-                                    onChange={handleCheckBoxChange}
-                                />
-                                <img src={curious} alt="curious icon" />
-                            </label>
-                            <div>
-                                <input
-                                    className="icon-input"
-                                    type="text"
-                                    placeholder="Enter label for curious"
-                                    onChange={(e) =>
-                                        handleIconChange(
-                                            "curiousState",
-                                            e.target.value,
-                                        )
-                                    }
-                                    value={allIconsStates.curiousState}
-                                />
-                            </div>
+                        <div className="title">{renderTitle()}</div>
+                        <div className="poll-content">
+                            {icons.map((el: icon, index: number) => {
+                                return (
+                                    <div className="poll-icon" key={index}>
+                                        <div>
+                                            {el.type === "like"
+                                                ? allIconsStates.likeState
+                                                : el.type === "love"
+                                                ? allIconsStates.loveState
+                                                : el.type === "curious"
+                                                ? allIconsStates.curiousState
+                                                : el.type === "insight"
+                                                ? allIconsStates.insightState
+                                                : allIconsStates.supportState}
+                                        </div>
+                                        <Arrow iconType={el.type} />
+                                        <div className="icon-holder">
+                                            <img
+                                                src={el.img}
+                                                alt="Icon"
+                                                style={
+                                                    el.type === "insight"
+                                                        ? { width: "35px" }
+                                                        : {}
+                                                }
+                                            />
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <form
-                    className="bottom-section"
-                    onSubmit={(event: FormEvent<HTMLFormElement>) =>
-                        handleDownload(event)
-                    }
+            <div className="reaction-icons">
+                <h3
+                    style={{
+                        textAlign: "center",
+                        marginBottom: ".25rem",
+                        marginTop: "0",
+                    }}
                 >
-                    <div className="poll-title">
-                        <h1 className="light-text"> Poll title </h1>
-                        <input
-                            className="poll-title-input"
-                            type="text"
-                            placeholder="Enter poll title here ..."
-                            required
-                            value={pollTitle}
-                            onChange={handleChange}
-                        />
+                    {" "}
+                    Choose reactions{" "}
+                </h3>
+                <div className="container">
+                    <div className="icons like">
+                        <label className="icon-holder" htmlFor="like">
+                            <input
+                                type="checkbox"
+                                name=""
+                                id="like"
+                                onChange={handleCheckBoxChange}
+                            />
+                            <img src={like} alt="Like icon" />
+                        </label>
+                        <div>
+                            <input
+                                className="icon-input"
+                                type="text"
+                                placeholder="Enter label for like"
+                                onChange={(e) =>
+                                    handleIconChange(
+                                        "likeState",
+                                        e.target.value,
+                                    )
+                                }
+                                value={allIconsStates.likeState}
+                            />
+                        </div>
                     </div>
-                    <div className="underlined-text-quest">
-                        <p
-                            className="light-text"
-                            style={{ marginRight: "10px" }}
-                        >
-                            Underlined title?
-                        </p>
-                        <input
-                            type="checkbox"
-                            id="like"
-                            onChange={handleSetUnderlinedText}
-                        />
+
+                    <div className="icons love">
+                        <label className="icon-holder" htmlFor="love">
+                            <input
+                                type="checkbox"
+                                name=""
+                                id="love"
+                                onChange={handleCheckBoxChange}
+                            />
+                            <img src={love} alt="Love icon" />
+                        </label>
+                        <div>
+                            <input
+                                className="icon-input"
+                                type="text"
+                                placeholder="Enter label for love"
+                                onChange={(e) =>
+                                    handleIconChange(
+                                        "loveState",
+                                        e.target.value,
+                                    )
+                                }
+                                value={allIconsStates.loveState}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <h2 className="light-text">When complete</h2>
-                        {isLoading && (
-                            <span className="btn download">Loading...</span>
-                        )}
-                        {!isLoading && (
-                            <button type="submit" className="btn download">
-                                Download
-                            </button>
-                        )}
+
+                    <div className="icons insight">
+                        <label className="icon-holder" htmlFor="insight">
+                            <input
+                                type="checkbox"
+                                name=""
+                                id="insight"
+                                onChange={handleCheckBoxChange}
+                            />
+                            <img
+                                className="insight-img"
+                                src={insight}
+                                alt="insight icon"
+                            />
+                        </label>
+                        <div>
+                            <input
+                                className="icon-input"
+                                type="text"
+                                placeholder="Enter label for insight"
+                                onChange={(e) =>
+                                    handleIconChange(
+                                        "insightState",
+                                        e.target.value,
+                                    )
+                                }
+                                value={allIconsStates.insightState}
+                            />
+                        </div>
                     </div>
-                </form>
-            </section>
+                    <div className="icons support">
+                        <label className="icon-holder" htmlFor="support">
+                            <input
+                                type="checkbox"
+                                name=""
+                                id="support"
+                                onChange={handleCheckBoxChange}
+                            />
+                            <img src={support} alt="support icon" />
+                        </label>
+                        <div>
+                            <input
+                                className="icon-input"
+                                type="text"
+                                placeholder="Enter label for support"
+                                onChange={(e) =>
+                                    handleIconChange(
+                                        "supportState",
+                                        e.target.value,
+                                    )
+                                }
+                                value={allIconsStates.supportState}
+                            />
+                        </div>
+                    </div>
+                    <div className="icons curious">
+                        <label className="icon-holder" htmlFor="curious">
+                            <input
+                                type="checkbox"
+                                name=""
+                                id="curious"
+                                onChange={handleCheckBoxChange}
+                            />
+                            <img src={curious} alt="curious icon" />
+                        </label>
+                        <div>
+                            <input
+                                className="icon-input"
+                                type="text"
+                                placeholder="Enter label for curious"
+                                onChange={(e) =>
+                                    handleIconChange(
+                                        "curiousState",
+                                        e.target.value,
+                                    )
+                                }
+                                value={allIconsStates.curiousState}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form
+                className="bottom-section"
+                onSubmit={(event: FormEvent<HTMLFormElement>) =>
+                    handleDownload(event)
+                }
+            >
+                <div className="poll-title">
+                    <h1 className="light-text"> Poll title </h1>
+                    <input
+                        className="poll-title-input"
+                        type="text"
+                        placeholder="Enter poll title here ..."
+                        required
+                        value={pollTitle}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="underlined-text-quest">
+                    <p className="light-text" style={{ marginRight: "10px" }}>
+                        Underlined title?
+                    </p>
+                    <input
+                        type="checkbox"
+                        id="like"
+                        onChange={handleSetUnderlinedText}
+                    />
+                </div>
+                <div>
+                    <h2 className="light-text">When complete</h2>
+                    {!isLoading && (
+                        <button type="submit" className="btn download">
+                            Download
+                        </button>
+                    )}
+                    {isLoading && (
+                        <button type="submit" className="btn download loading">
+                            Loading
+                        </button>
+                    )}
+                </div>
+            </form>
+        </section>
     );
 };
 

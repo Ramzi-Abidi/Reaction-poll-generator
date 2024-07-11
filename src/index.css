@@ -254,6 +254,9 @@ input[type="checkbox"] {
     color: var(--color-snow);
     background-color: var(--hover-color-grass);
 }
+.loading {
+    pointer-events: none;
+}
 /* Github button */
 .star-github-img-container {
     width: 40px;
