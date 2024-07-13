@@ -1,0 +1,6 @@
+# Exclude these directories from Prettier checks
+dlia-client/**
+build/
+coverage/
+node_modules
+dist

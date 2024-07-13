@@ -5,6 +5,7 @@
 If you discover a security issue in our project, please report it to us as soon as possible and we appreciate your efforts to disclose the issue responsibly.
 
 Please follow the responsible disclosure principles:
+
 - **Do not publicly disclose the issue until it has been resolved.**
 - Report any security concerns directly to our security team via email.
 
@@ -27,11 +28,13 @@ Security updates will be issued for the supported versions in response to report
 ## Vulnerability Disclosure Process
 
 1. **Report the Issue:**
+
    - Include a detailed description of the issue, the steps to reproduce it, and any supporting documentation.
-   - Send me email: 
+   - Send me email:
      [ramziabidi.dev@gmail.com](mailto:ramziabidi.dev@gmail.com)
- 
+
 2. **Resolution:**
+
    - Once a resolution is identified, the team will collaborate with you to confirm the effectiveness of the fix.
    - A security update will be prepared and released.
 
