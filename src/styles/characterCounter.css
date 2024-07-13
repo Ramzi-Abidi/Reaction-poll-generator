@@ -4,7 +4,8 @@
   width: 750px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 3rem 2rem;
+  padding: 1.5rem 1.5rem;
+  border-radius: 4px;
 }
 .characters-counter-content-container {
   display: flex;
@@ -51,7 +52,7 @@
   flex-direction: column;
 }
 .intro p {
-  margin-bottom: 1.25rem;
+  margin-bottom: .75rem;
 }
 .left-part span {
   text-align: center;
