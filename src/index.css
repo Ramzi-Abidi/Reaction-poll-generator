@@ -127,9 +127,6 @@ input[type="checkbox"] {
   align-items: center;
   flex-direction: column;
 }
-/* .intro h1 {
-    margin-right: 2.5rem;
-} */
 .reaction-icons .container {
   display: flex;
   justify-content: space-around;
@@ -308,6 +305,7 @@ input[type="file"] {
   font-size: 12px;
 }
 .link {
+  padding: .5rem .25rem;
   margin: 1rem 0.5rem;
 }
 .link a {
@@ -329,7 +327,7 @@ input[type="file"] {
   letter-spacing: -0.5px;
   color: var(--color-marin-blue);
   margin-bottom: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 @media (max-width: 768px) {
   .hero-title {
